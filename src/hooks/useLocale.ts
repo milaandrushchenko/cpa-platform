@@ -4,7 +4,7 @@ import {
   DEFAULT_LOCALE,
   type Locale,
   SUPPORTED_LOCALES,
-} from '@/constants/locales';
+} from '@/config/locales';
 
 function isLocale(value: string): value is Locale {
   return SUPPORTED_LOCALES.includes(value as Locale);
