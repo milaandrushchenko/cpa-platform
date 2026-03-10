@@ -1,4 +1,4 @@
-import type { Locale } from '@constants/locales';
+import type { Locale } from '@config/locales';
 
 import type { BenefitsResponse } from '@/types/api';
 

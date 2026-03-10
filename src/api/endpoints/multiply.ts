@@ -1,4 +1,4 @@
-import type { Locale } from '@constants/locales';
+import type { Locale } from '@config/locales';
 
 import type { MultiplyResponse } from '@/types/api';
 
