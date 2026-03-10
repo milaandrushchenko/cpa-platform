@@ -40,7 +40,8 @@
       "@sections/*": ["src/sections/*"],
       "@styles/*": ["src/styles/*"],
       "@i18n/*": ["src/i18n/*"],
-      "@animations/*": ["src/animations/*"]
+      "@animations/*": ["src/animations/*"],
+      "@constants/*": ["src/constants/*"]
     }
   },
   "include": ["src"]
