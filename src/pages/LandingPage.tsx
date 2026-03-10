@@ -1,7 +1,9 @@
 import { useLocale } from '@/hooks/useLocale';
+import { useScrollToHash } from '@/hooks/useScrollToHash';
 
 export default function LandingPage() {
   const locale = useLocale();
+  useScrollToHash();
 
   return (
     <div>
