@@ -24,6 +24,7 @@ export default defineConfig({
       '@styles': resolvePath('./src/styles'),
       '@i18n': resolvePath('./src/i18n'),
       '@animations': resolvePath('./src/animations'),
+      '@config': resolvePath('./src/config'),
     },
   },
 });
