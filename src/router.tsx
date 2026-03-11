@@ -1,9 +1,8 @@
 import { SUPPORTED_LOCALES } from '@config/locales';
 import LandingPage from '@pages/LandingPage';
+import NotFoundPage from '@pages/NotFoundPage';
 
 import { createBrowserRouter } from 'react-router-dom';
-
-import NotFoundPage from '@/pages/NotFoundPage';
 
 const localeRoutes = SUPPORTED_LOCALES.map((locale) => ({
   path: `/${locale}`,
