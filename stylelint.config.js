@@ -1,0 +1,27 @@
+export default {
+  extends: ['stylelint-config-standard-scss'],
+
+  rules: {
+    'max-nesting-depth': 3,
+    'selector-max-id': 0,
+    'selector-max-universal': 1,
+
+    'color-function-notation': 'modern',
+    'alpha-value-notation': 'number',
+
+    'scss/dollar-variable-pattern': '^[a-z][a-z0-9-]*$',
+    'scss/at-mixin-pattern': '^[a-z][a-z0-9-]*$',
+    'selector-class-pattern': '^[a-z][a-z0-9-]*$',
+    'scss/at-function-pattern': '^[a-z][a-z0-9-]*$',
+
+    'declaration-no-important': true,
+
+    'rule-empty-line-before': [
+      'always',
+      {
+        except: ['first-nested'],
+        ignore: ['after-comment'],
+      },
+    ],
+  },
+};
