@@ -1,0 +1,32 @@
+// Colors
+$color-black: #000000;
+$color-white: #ffffff;
+$color-yellow: #fee97d;
+$color-liliac: #a30ee9;
+
+// Background Colors
+$background-color-primary: $color-liliac;
+$background-color-secondary: $color-yellow;
+
+// Typography ==============
+
+// Font Families
+$font-family-primary: 'Stolzl', sans-serif;
+$font-family-secondary: 'Halvar Breit', sans-serif;
+
+// Font Sizes
+$font-size-xs: 18px;
+$font-size-s: 20px;
+$font-size-m: 24px;
+$font-size-l: 28px;
+$font-size-xl: 32px;
+$font-size-xxl: 72px;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Media Queries ==============
+$breakpoint-desktop: 1024px;
