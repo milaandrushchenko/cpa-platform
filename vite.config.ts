@@ -26,4 +26,11 @@ export default defineConfig({
       '@animations': resolvePath('./src/animations'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/styles/constants" as *; @use "@/styles/mixins" as *;`,
+      },
+    },
+  },
 });
