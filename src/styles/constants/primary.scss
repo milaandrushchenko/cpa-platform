@@ -1,12 +1,72 @@
-// Colors
+// Color primitives
+
 $color-black: #000000;
 $color-white: #ffffff;
-$color-yellow: #fee97d;
-$color-lilac: #a30ee9;
+$color-yellow-300: #fee97d;
+$color-orange-500: #dc8400;
+$color-fuchsia-500: #9e13e0;
+$color-violet-600: #9500dc;
+$color-purple-700: #560080;
+$color-purple-900: #220032;
+$color-plum-950: #14091a;
 
-// Background Colors
-$background-color-primary: $color-lilac;
-$background-color-secondary: $color-yellow;
+// Semantic colors
+
+$bg-page: $color-black;
+$bg-surface: $color-plum-950;
+$bg-card: $color-violet-600;
+$bg-card-highlight: $color-fuchsia-500;
+$bg-cta: $color-yellow-300;
+$bg-grid: $color-yellow-300;
+
+$text-primary: $color-white;
+$text-muted: rgba($color-white, 0.7);
+$text-accent: $color-yellow-300;
+$text-on-cta: $color-black;
+
+// Gradients
+
+$gradient-angle: 111.06deg;
+
+$gradient-hero-base: linear-gradient(
+  0deg,
+  $color-fuchsia-500,
+  $color-fuchsia-500
+);
+$gradient-hero-overlay: linear-gradient(
+  $gradient-angle,
+  $color-orange-500 -3.49%,
+  $color-purple-700 49.69%,
+  $color-purple-900 91.86%
+);
+
+$bg-primary: $gradient-hero-base, $gradient-hero-overlay;
+
+$gradient-section-brand: linear-gradient(
+  $gradient-angle,
+  $color-violet-600 -3.49%,
+  $color-purple-700 49.69%,
+  $color-purple-900 91.86%
+);
+
+$gradient-section-depth: linear-gradient(
+  $gradient-angle,
+  $color-plum-950 -3.49%,
+  $color-plum-950 49.69%,
+  $color-purple-900 91.86%
+);
+
+$bg-dark: $gradient-section-brand, $gradient-section-depth;
+
+// Buttons
+
+$button-primary-bg: $color-yellow-300;
+$button-primary-text: $color-black;
+$button-primary-border: $color-yellow-300;
+
+$button-secondary-bg: transparent;
+$button-secondary-text: $color-yellow-300;
+$button-secondary-border: $color-yellow-300;
 
 // Typography ==============
 
