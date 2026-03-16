@@ -19,10 +19,10 @@ $bg-card-highlight: $color-fuchsia-500;
 $bg-cta: $color-yellow-300;
 $bg-grid: $color-yellow-300;
 
-$text-primary: $color-white;
-$text-muted: rgba($color-white, 0.7);
-$text-accent: $color-yellow-300;
-$text-on-cta: $color-black;
+$text-color-primary: $color-white;
+$text-color-muted: rgba($color-white, 0.7);
+$text-color-accent: $color-yellow-300;
+$text-color-on-cta: $color-black;
 
 // Gradients
 
@@ -60,21 +60,24 @@ $bg-dark: $gradient-section-brand, $gradient-section-depth;
 
 // Buttons
 
-$button-primary-bg: $color-yellow-300;
-$button-primary-text: $color-black;
-$button-primary-border: $color-yellow-300;
+$button-primary-color-bg: $color-yellow-300;
+$button-primary-color-text: $color-black;
+$button-primary-color-border: $color-yellow-300;
 
-$button-secondary-bg: transparent;
-$button-secondary-text: $color-yellow-300;
-$button-secondary-border: $color-yellow-300;
+$button-secondary-color-bg: transparent;
+$button-secondary-color-text: $color-yellow-300;
+$button-secondary-color-border: $color-yellow-300;
 
 // Typography ==============
 
-// Font Families
-$font-family-primary: 'Stolzl', sans-serif;
-$font-family-secondary: 'Halvar Breit', sans-serif;
+// Font families
 
-// Font Sizes
+$font-family-base: 'Stolzl', sans-serif;
+$font-family-display: 'Halvar Breit', sans-serif;
+
+// Font size scale
+
+$font-size-16: 16px;
 $font-size-18: 18px;
 $font-size-20: 20px;
 $font-size-24: 24px;
@@ -82,13 +85,28 @@ $font-size-28: 28px;
 $font-size-32: 32px;
 $font-size-72: 72px;
 
-// Font Weights
+// Semantic typography
+
+$text-size-body: $font-size-16;
+$text-size-body-lg: $font-size-20;
+$text-size-title-sm: $font-size-24;
+$text-size-title-md: $font-size-28;
+$text-size-title-lg: $font-size-32;
+$text-size-display: $font-size-72;
+
+// Optional, if needed later
+$text-size-button: $font-size-18;
+$text-size-label: $font-size-18;
+
+// Font weights
+
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 
 // Spacing
+
 $space-4: 4px;
 $space-8: 8px;
 $space-12: 12px;

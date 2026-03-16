@@ -1,10 +1,10 @@
 @use 'modern-normalize/modern-normalize.css';
 
 body {
-  font-family: $font-family-primary;
-  font-size: $font-size-20;
+  font-family: $font-family-base;
+  font-size: $text-size-body;
   line-height: 1;
-  color: $text-primary;
+  color: $text-color-primary;
   background-color: $bg-page;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
