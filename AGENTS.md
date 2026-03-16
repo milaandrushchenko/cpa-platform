@@ -44,4 +44,5 @@ Your goal is to write clean, performant, and maintainable React code using the p
 - Run `nvm use` to use current node version.
 - Run `npm run dev` to start the development server.
 - Run `npm run lint` to check for linting errors.
+- Run `npm run lint:styles` to check for stylelint errors.
 - Run `npm run build` to build for production.
