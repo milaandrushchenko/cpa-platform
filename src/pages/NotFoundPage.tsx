@@ -1,4 +1,4 @@
-import { PageLayout } from '@layouts/PageLayout/PageLayout';
+import { PageLayout } from '@layouts/PageLayout';
 
 export default function NotFoundPage() {
   return (

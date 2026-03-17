@@ -8,9 +8,6 @@ type PageContainerProps = PropsWithChildren<{
   className?: string;
 }>;
 
-export default function PageContainer({
-  children,
-  className,
-}: PageContainerProps) {
+export const PageContainer = ({ children, className }: PageContainerProps) => {
   return <div className={clsx(styles.container, className)}>{children}</div>;
-}
+};

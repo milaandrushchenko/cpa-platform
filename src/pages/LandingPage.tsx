@@ -1,6 +1,6 @@
 import { useLocale } from '@hooks/useLocale';
 import { useScrollToHash } from '@hooks/useScrollToHash';
-import { PageLayout } from '@layouts/PageLayout/PageLayout';
+import { PageLayout } from '@layouts/PageLayout';
 
 export default function LandingPage() {
   const locale = useLocale();
@@ -8,7 +8,6 @@ export default function LandingPage() {
 
   return (
     <div>
-      Locale: {locale}
       <PageLayout id="hero" fullHeight>
         Hero — {locale}
       </PageLayout>

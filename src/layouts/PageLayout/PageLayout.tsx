@@ -1,4 +1,4 @@
-import PageContainer from '@layouts/PageContainer/PageContainer';
+import { PageContainer } from '@layouts/PageContainer';
 import clsx from 'clsx';
 
 import type { JSX, PropsWithChildren, ReactNode } from 'react';
