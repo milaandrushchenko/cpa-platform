@@ -27,4 +27,11 @@ export default defineConfig({
       '@config': resolvePath('./src/config'),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/styles/constants" as *; @use "@/styles/mixins" as *;`,
+      },
+    },
+  },
 });
