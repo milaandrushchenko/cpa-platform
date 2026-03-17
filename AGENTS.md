@@ -14,7 +14,7 @@ Your goal is to write clean, performant, and maintainable React code using the p
 ## Coding Standards
 
 ### 1. Typography & Styling
-- **Design Tokens:** ALWAYS use semantic tokens from `@styles/constants` (e.g., `$text-primary`, `$bg-card`). If needed token does not exist create new;
+- **Design Tokens:** ALWAYS use semantic tokens from `@styles/constants` (e.g., `$text-primary`, `$bg-card`). If a needed token does not exist, create a new one.
 - **Do NOT** use hardcoded hex values (`#fff`, `#000`) or raw color primitives (`$color-white`) in component styles.
 - **Mixins:** Use mixins from `@styles/mixins` for media queries and common patterns.
 - **Fonts:** Use global font families `$font-family-primary` (Stolzl) and `$font-family-secondary` (Halvar Breit).
