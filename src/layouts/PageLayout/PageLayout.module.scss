@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding-inline: 16px;
+  padding-inline: $space-container-mobile;
 }
 
 .fullHeight {
@@ -22,10 +22,16 @@
 
 @media (min-width: $breakpoint-desktop) {
   .section {
-    padding-inline: 50px;
+    padding-inline: $space-container-desktop;
   }
 
   .fullHeight {
     min-height: 100vh;
+  }
+}
+
+@media (min-width: $breakpoint-desktop-lg) {
+  .section {
+    padding-inline: $space-container-desktop-lg;
   }
 }
