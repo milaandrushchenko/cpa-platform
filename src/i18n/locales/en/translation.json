@@ -1,0 +1,65 @@
+{
+  "navigation": {
+    "team": "Team",
+    "benefits": "Benefits",
+    "collectForm": "Join us",
+    "locales": {
+      "en": "Eng",
+      "ru": "Рус"
+    }
+  },
+  "hero": {
+    "sectionName": "Hero",
+    "title": "Practice makes profit",
+    "description": "We provide effective solutions, tested and refined on our own products and ad budgets"
+  },
+  "tasks": {
+    "sectionName": "Multi-tasks"
+  },
+  "benefits": {
+    "sectionName": "Multi-benefits",
+    "ticker": "Dream big earn bigger!"
+  },
+  "multiply": {
+    "sectionName": "Multiply with us"
+  },
+  "footer": {
+    "links": {
+      "social": [
+        {
+          "name": "Instagram",
+          "url": "https://www.instagram.com/multicpa/"
+        },
+        {
+          "name": "Telegram",
+          "url": "https://t.me/multicpa"
+        },
+        {
+          "name": "LinkedIn",
+          "url": "https://www.linkedin.com/company/multicpa/"
+        }
+      ]
+    }
+  },
+  "form": {
+    "collect": {
+      "rule": "Fields with an asterisk (*) are mandatory",
+      "placeholders": {
+        "name": "Your name",
+        "contactMethod": "Contact method *",
+        "contact": "Your contact"
+      }
+    },
+    "submit": {
+      "title": "We have received your application!",
+      "description": "We will process your request \nand get in touch with you"
+    }
+  },
+  "notFound": { "message": "404" },
+  "globalCtas": {
+    "submit": "Submit",
+    "back": "Take me back",
+    "scrollToTop": "Scroll to top",
+    "done": "Done"
+  }
+}
