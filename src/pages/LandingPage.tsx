@@ -2,6 +2,8 @@ import { useLocale } from '@hooks/useLocale';
 import { useScrollToHash } from '@hooks/useScrollToHash';
 import { PageLayout } from '@layouts/PageLayout';
 
+import { Button } from '@/components/Button';
+
 export default function LandingPage() {
   const locale = useLocale();
   useScrollToHash();
@@ -10,6 +12,9 @@ export default function LandingPage() {
     <div>
       <PageLayout id="hero" fullHeight>
         Hero — {locale}
+        <Button variant="outline" shape="default">
+          For Media Buyers
+        </Button>
       </PageLayout>
       <PageLayout id="benefits" fullHeight>
         Benefits

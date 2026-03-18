@@ -1,0 +1,44 @@
+.button {
+  font-family: $font-family-display;
+  align-items: center;
+  font-weight: $font-weight-bold;
+  min-height: 60px;
+  width: fit-content;
+
+  &--default {
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: $text-size-body-md;
+    background: #0c090e;
+
+    @include desktop {
+      font-size: $text-size-title-sm;
+      min-height: 82px;
+    }
+  }
+
+  &--pill {
+    line-height: 24px;
+    font-size: $text-size-body-lg;
+    border-radius: 100px;
+    padding-inline: $space-36;
+    padding-block: 18px;
+
+    @include desktop {
+      font-size: $text-size-title-lg;
+      min-height: 90px;
+      padding-inline: 57px;
+      padding-block: 33px;
+    }
+  }
+
+  &--primary {
+    color: #0c090e;
+    border: 3px solid #0c090e;
+    background: $color-yellow-300;
+  }
+  &--outline {
+    color: $color-yellow-300;
+    border: 3px solid $color-yellow-300;
+  }
+}
