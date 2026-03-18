@@ -34,6 +34,14 @@ Your goal is to write clean, performant, and maintainable React code using the p
 - Use `useLocale` hook for locale management.
 - Ensure all user-facing text is translatable via `t()` function from `react-i18next`.
 
+## Agent Workflow & Best Practices
+- **Reuse First:** Check for and reuse existing components (`src/components`) before creating new ones.
+- **Maintain Consistency:** Follow current coding patterns and architecture. Do not introduce new patterns.
+- **Edit vs Create:** Prefer editing existing files over creating new ones to avoid file sprawl.
+- **Safety:** Avoid breaking existing functionality. Do not remove code unless it is clearly unused.
+- **Component Design:** Keep components small and focused on a single responsibility.
+- **Logic Separation:** Extract business logic into custom hooks (`src/hooks`) or utilities. Keep UI components focused on rendering.
+
 ## File Structure & Cleanup
 - `@/` maps to `src/`
 - `@styles` maps to `src/styles`
