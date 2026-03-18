@@ -1,44 +1,114 @@
+$button-depth-y: 11px;
+$button-depth-x: 9px;
+$button-side-width: 9px;
+$button-border-width: 3px;
+$button-skew-top: -50deg;
+$button-skew-side: -35deg;
+$button-letter-spacing: 0.2em;
+
 .button {
-  font-family: $font-family-display;
+  display: inline-flex;
   align-items: center;
-  font-weight: $font-weight-bold;
-  min-height: 60px;
+  justify-content: center;
   width: fit-content;
+  min-height: 60px;
+  margin: 100px;
+  font-family: $font-family-display;
+  font-weight: $font-weight-bold;
+
+  &--default,
+  &--pill {
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
 
   &--default {
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    position: relative;
+    padding-inline: 25px;
     font-size: $text-size-body-md;
-    background: #0c090e;
+    letter-spacing: $button-letter-spacing;
+    text-transform: uppercase;
+    color: $color-dark;
+    background-color: $color-yellow-300;
+    border: $button-border-width solid $color-dark;
 
     @include desktop {
-      font-size: $text-size-title-sm;
       min-height: 82px;
+      padding-inline: 30px;
+      font-size: $text-size-title-sm;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      box-sizing: border-box;
+      background-color: $color-yellow-300;
+      border-color: $color-dark;
+      transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    &::before {
+      top: -$button-depth-y;
+      left: -$button-border-width;
+      right: -$button-border-width;
+      height: 8px;
+      border: $button-border-width solid $color-dark;
+      border-bottom: none;
+      transform: skewX($button-skew-top);
+      transform-origin: bottom left;
+      z-index: 100;
+    }
+
+    &::after {
+      top: -$button-depth-y;
+      right: -12px;
+      width: $button-side-width;
+      height: calc(100% + 8px);
+      border: $button-border-width solid $color-dark;
+      border-left: none;
+      border-top: none;
+      transform: skewY($button-skew-side);
+      transform-origin: top right;
+    }
+
+    &:hover {
+      color: $color-yellow-300;
+      background-color: $color-dark;
+      border-color: $color-yellow-300;
+
+      &::before,
+      &::after {
+        background-color: $color-dark;
+        border-color: $color-yellow-300;
+      }
     }
   }
 
   &--pill {
-    line-height: 24px;
-    font-size: $text-size-body-lg;
-    border-radius: 100px;
-    padding-inline: $space-36;
     padding-block: 18px;
+    padding-inline: $space-36;
+    border: $button-border-width solid $color-yellow-300;
+    border-radius: 100px;
+    color: $color-yellow-300;
+    font-size: $text-size-body-lg;
+    line-height: 24px;
 
     @include desktop {
-      font-size: $text-size-title-lg;
       min-height: 90px;
-      padding-inline: 57px;
       padding-block: 33px;
+      padding-inline: 57px;
+      font-size: $text-size-title-lg;
     }
-  }
 
-  &--primary {
-    color: #0c090e;
-    border: 3px solid #0c090e;
-    background: $color-yellow-300;
-  }
-  &--outline {
-    color: $color-yellow-300;
-    border: 3px solid $color-yellow-300;
+    &:hover {
+      color: $color-dark;
+      background-color: $color-yellow-300;
+      border-color: $color-dark;
+    }
   }
 }

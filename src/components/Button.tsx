@@ -5,25 +5,15 @@ import type { PropsWithChildren, ReactNode } from 'react';
 import styles from './Button.module.scss';
 
 type ButtonProps = PropsWithChildren<{
-  variant?: 'primary' | 'outline';
   shape?: 'default' | 'pill';
   icon?: ReactNode;
 }>;
 
-export const Button = ({
-  children,
-  icon,
-  shape = 'default',
-  variant = 'primary',
-}: ButtonProps) => {
+export const Button = ({ children, icon, shape = 'default' }: ButtonProps) => {
   return (
     <button
       type="button"
-      className={clsx(
-        styles.button,
-        styles[`button--${shape}`],
-        styles[`button--${variant}`],
-      )}
+      className={clsx(styles.button, styles[`button--${shape}`])}
     >
       {children}
       {icon}
