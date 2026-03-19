@@ -8,7 +8,6 @@ import styles from './Button.module.scss';
 type ButtonProps = PropsWithChildren<{
   shape?: 'default' | 'pill';
   icon?: ReactNode;
-  classNames?: string;
 }>;
 
 export const Button = ({ children, icon, shape = 'default' }: ButtonProps) => {
@@ -19,7 +18,7 @@ export const Button = ({ children, icon, shape = 'default' }: ButtonProps) => {
       type="button"
       className={clsx(styles.button, styles[`button--${shape}`])}
     >
-      {children}
+      <span>{children}</span>
       {resolvedIcon && <span className={styles.icon}>{resolvedIcon}</span>}
     </button>
   );
