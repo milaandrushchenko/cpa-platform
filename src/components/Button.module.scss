@@ -1,18 +1,42 @@
+// ===== Geometry tokens =====
 $button-depth-y: 11px;
 $button-depth-x: 9px;
 $button-side-width: 9px;
 $button-border-width: 3px;
+
+$button-top-height: 8px;
+
+// optical fix to align top face with side after skew
+$button-top-right-offset-fix: -2.5px;
+
+// derived
+$button-side-offset-right: calc($button-side-width + $button-border-width);
+$button-side-extra-height: $button-top-height;
+
+// skew
 $button-skew-top: -50deg;
 $button-skew-side: -35deg;
+
+// typography
 $button-letter-spacing: 0.2em;
 
+// heights
+$button-default-total-height-mobile: 60px;
+$button-default-total-height-desktop: 82px;
+
+$button-default-face-height-mobile: calc(
+  #{$button-default-total-height-mobile} - #{$button-depth-y}
+);
+$button-default-face-height-desktop: calc(
+  #{$button-default-total-height-desktop} - #{$button-depth-y}
+);
+
 .button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  min-height: 60px;
-  margin: 100px;
   font-family: $font-family-display;
   font-weight: $font-weight-bold;
 
@@ -24,18 +48,26 @@ $button-letter-spacing: 0.2em;
       border-color 0.2s ease;
   }
 
+  // ================= DEFAULT =================
   &--default {
     position: relative;
+
+    min-height: $button-default-face-height-mobile;
     padding-inline: 25px;
+
     font-size: $text-size-body-md;
     letter-spacing: $button-letter-spacing;
     text-transform: uppercase;
+
     color: $color-dark;
     background-color: $color-yellow-300;
     border: $button-border-width solid $color-dark;
 
+    margin-top: $button-depth-y;
+    margin-right: $button-side-width;
+
     @include desktop {
-      min-height: 82px;
+      min-height: $button-default-face-height-desktop;
       padding-inline: 30px;
       font-size: $text-size-title-sm;
     }
@@ -45,33 +77,42 @@ $button-letter-spacing: 0.2em;
       content: '';
       position: absolute;
       box-sizing: border-box;
+
       background-color: $color-yellow-300;
       border-color: $color-dark;
+
       transition:
         background-color 0.2s ease,
         border-color 0.2s ease;
     }
 
+    //  top face
     &::before {
       top: -$button-depth-y;
       left: -$button-border-width;
-      right: -$button-border-width;
-      height: 8px;
+      right: $button-top-right-offset-fix;
+      height: $button-top-height;
+
       border: $button-border-width solid $color-dark;
       border-bottom: none;
+
       transform: skewX($button-skew-top);
       transform-origin: bottom left;
       z-index: 100;
     }
 
+    //  side face
     &::after {
       top: -$button-depth-y;
-      right: -12px;
+      right: -$button-side-offset-right;
+
       width: $button-side-width;
-      height: calc(100% + 8px);
+      height: calc(100% + #{$button-side-extra-height});
+
       border: $button-border-width solid $color-dark;
       border-left: none;
       border-top: none;
+
       transform: skewY($button-skew-side);
       transform-origin: top right;
     }
@@ -89,20 +130,25 @@ $button-letter-spacing: 0.2em;
     }
   }
 
+  // ================= PILL =================
   &--pill {
-    padding-block: 18px;
+    min-height: 60px;
+
     padding-inline: $space-36;
     border: $button-border-width solid $color-yellow-300;
     border-radius: 100px;
+
     color: $color-yellow-300;
     font-size: $text-size-body-lg;
     line-height: 24px;
 
+    gap: $space-12;
+
     @include desktop {
       min-height: 90px;
-      padding-block: 33px;
       padding-inline: 57px;
       font-size: $text-size-title-lg;
+      gap: $space-40;
     }
 
     &:hover {
@@ -110,5 +156,19 @@ $button-letter-spacing: 0.2em;
       background-color: $color-yellow-300;
       border-color: $color-dark;
     }
+  }
+}
+
+// ================= ICON =================
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    height: 0.7em;
+    width: auto;
+    flex-shrink: 0;
+    fill: currentColor;
   }
 }

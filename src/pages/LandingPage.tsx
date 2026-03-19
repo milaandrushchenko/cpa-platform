@@ -12,7 +12,7 @@ export default function LandingPage() {
     <div>
       <PageLayout id="hero" fullHeight>
         Hero — {locale}
-        <Button shape="pill">JOIN THE TEAM</Button>
+        <Button shape="default">JOIN THE TEAM</Button>
       </PageLayout>
       <PageLayout id="benefits" fullHeight>
         Benefits
