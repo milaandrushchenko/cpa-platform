@@ -1,5 +1,7 @@
+@use '../constants' as *;
+
 @mixin desktop {
-  @media (min-width: 1024px) {
+  @media (min-width: $breakpoint-desktop) {
     @content;
   }
 }
