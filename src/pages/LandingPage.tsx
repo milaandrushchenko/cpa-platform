@@ -1,5 +1,6 @@
-import { useLocale } from '@/hooks/useLocale';
-import { useScrollToHash } from '@/hooks/useScrollToHash';
+import { useLocale } from '@hooks/useLocale';
+import { useScrollToHash } from '@hooks/useScrollToHash';
+import { PageLayout } from '@layouts/PageLayout';
 
 export default function LandingPage() {
   const locale = useLocale();
@@ -7,19 +8,18 @@ export default function LandingPage() {
 
   return (
     <div>
-      Locale: {locale}
-      <section id="hero" style={{ height: '500px' }}>
-        Hero
-      </section>
-      <section id="benefits" style={{ height: '500px' }}>
+      <PageLayout id="hero" fullHeight>
+        Hero — {locale}
+      </PageLayout>
+      <PageLayout id="benefits" fullHeight>
         Benefits
-      </section>
-      <section id="promo" style={{ height: '500px' }}>
+      </PageLayout>
+      <PageLayout id="promo" fullHeight>
         Promo
-      </section>
-      <section id="join" style={{ height: '500px' }}>
+      </PageLayout>
+      <PageLayout id="join" fullHeight>
         Join
-      </section>
+      </PageLayout>
     </div>
   );
 }
