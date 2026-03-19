@@ -9,10 +9,9 @@ export default function LandingPage() {
   useScrollToHash();
 
   return (
-    <div>
+    <main>
       <PageLayout id="hero" fullHeight>
         Hero — {locale}
-        <Button shape="default">JOIN THE TEAM</Button>
       </PageLayout>
       <PageLayout id="benefits" fullHeight>
         Benefits
@@ -23,6 +22,6 @@ export default function LandingPage() {
       <PageLayout id="join" fullHeight>
         Join
       </PageLayout>
-    </div>
+    </main>
   );
 }
