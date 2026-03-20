@@ -1,3 +1,4 @@
+import { Button } from '@components/Button';
 import { useLocale } from '@hooks/useLocale';
 import { useScrollToHash } from '@hooks/useScrollToHash';
 import { PageLayout } from '@layouts/PageLayout';
@@ -7,9 +8,10 @@ export default function LandingPage() {
   useScrollToHash();
 
   return (
-    <div>
+    <main>
       <PageLayout id="hero" fullHeight>
         Hero — {locale}
+        <Button shape="pill">JOIN THE TEAM</Button>
       </PageLayout>
       <PageLayout id="benefits" fullHeight>
         Benefits
@@ -20,6 +22,6 @@ export default function LandingPage() {
       <PageLayout id="join" fullHeight>
         Join
       </PageLayout>
-    </div>
+    </main>
   );
 }
