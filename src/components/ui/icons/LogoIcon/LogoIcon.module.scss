@@ -1,0 +1,19 @@
+.logo {
+  display: block;
+  flex-shrink: 0;
+}
+
+.logo--sm {
+  width: 26px;
+  height: 24px;
+
+  @include desktop {
+    width: 45px;
+    height: 41px;
+  }
+}
+
+.logo--md {
+  width: 56px;
+  height: 52px;
+}

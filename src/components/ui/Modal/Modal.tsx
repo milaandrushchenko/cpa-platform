@@ -1,9 +1,8 @@
-import CloseIcon from '@assets/icons/close.svg?react';
 import clsx from 'clsx';
 
 import { type MouseEvent, type PropsWithChildren, useEffect } from 'react';
 
-import { CloseButton } from '../icons/CloseButton/CloseButton';
+import { CloseButton } from '../CloseButton';
 import styles from './Modal.module.scss';
 
 type ModalProps = PropsWithChildren<{
