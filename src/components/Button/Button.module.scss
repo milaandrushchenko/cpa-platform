@@ -93,7 +93,7 @@ $button-default-face-height-desktop: calc(
 
       transform: skewX($button-skew-top);
       transform-origin: bottom left;
-      z-index: 100;
+      z-index: 1;
     }
 
     //  side face
@@ -141,7 +141,7 @@ $button-default-face-height-desktop: calc(
 
     @include desktop {
       min-height: 90px;
-      padding-inline: 57px;
+      padding-inline: 56px;
       font-size: $text-size-title-lg;
       gap: $space-40;
     }
