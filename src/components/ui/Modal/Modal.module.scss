@@ -1,0 +1,33 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 12px;
+  overflow: hidden;
+  padding-inline: $space-20;
+  padding-block: 60px;
+  background: $color-white;
+  color: $color-purple-dark;
+  font-size: $text-size-caption;
+  font-weight: $font-weight-light;
+  border: 1px solid $bg-card-highlight;
+
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    fill: $bg-card-highlight;
+  }
+}

@@ -78,6 +78,7 @@ $font-family-display: 'Halvar Breit', sans-serif;
 
 // Font size scale
 
+$font-size-14: 14px;
 $font-size-16: 16px;
 $font-size-18: 18px;
 $font-size-20: 20px;
@@ -88,6 +89,7 @@ $font-size-72: 72px;
 
 // Semantic typography
 
+$text-size-caption: $font-size-14;
 $text-size-body: $font-size-16;
 $text-size-body-md: $font-size-18;
 $text-size-body-lg: $font-size-20;
@@ -113,6 +115,7 @@ $space-4: 4px;
 $space-8: 8px;
 $space-12: 12px;
 $space-16: 16px;
+$space-20: 20px;
 $space-24: 24px;
 $space-32: 32px;
 $space-36: 36px;
