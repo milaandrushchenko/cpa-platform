@@ -12,7 +12,12 @@ type ButtonProps = PropsWithChildren<
   } & ButtonHTMLAttributes<HTMLButtonElement>
 >;
 
-export const Button = ({ children, icon, shape = 'default' }: ButtonProps) => {
+export const Button = ({
+  children,
+  icon,
+  shape = 'default',
+  ...props
+}: ButtonProps) => {
   const resolvedIcon =
     icon ?? (shape === 'pill' ? <ArrowIcon direction="right" /> : null);
 
@@ -20,6 +25,7 @@ export const Button = ({ children, icon, shape = 'default' }: ButtonProps) => {
     <button
       type="button"
       className={clsx(styles.button, styles[`button--${shape}`])}
+      {...props}
     >
       <span className={styles.label}>{children}</span>
 
