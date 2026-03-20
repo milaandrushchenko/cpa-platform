@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { type MouseEvent, type PropsWithChildren, useEffect } from 'react';
 
 import { CloseButton } from '../CloseButton';
+import { LogoIcon } from '../icons/LogoIcon';
 import styles from './Modal.module.scss';
 
 type ModalProps = PropsWithChildren<{
@@ -40,6 +41,7 @@ export const Modal = ({ isOpen, onClose, className, children }: ModalProps) => {
     <div className={styles.overlay} onClick={handleOverlayClick}>
       <div className={clsx(styles.modal, className)}>
         <CloseButton onClick={onClose} className={styles.closeButton} />
+        <LogoIcon size="md" className={styles.logo} />
         {children}
       </div>
     </div>
