@@ -15,7 +15,7 @@ export default function LandingPage() {
       </PageLayout>
       <PageLayout id="tasks" fullHeight>
         {t('tasks.sectionName')}
-        <Button shape="pill">{t('tasks.joinButton')}</Button>
+        <Button shape="pill">{t('tasks.sectionName')}</Button>
       </PageLayout>
       <PageLayout id="benefits" fullHeight>
         {t('benefits.sectionName')}
