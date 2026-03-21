@@ -1,26 +1,27 @@
 import { Button } from '@components/ui/Button';
-import { useLocale } from '@hooks/useLocale';
 import { useScrollToHash } from '@hooks/useScrollToHash';
 import { PageLayout } from '@layouts/PageLayout';
 
+import { useTranslation } from 'react-i18next';
+
 export default function LandingPage() {
-  const locale = useLocale();
+  const { t } = useTranslation();
   useScrollToHash();
 
   return (
     <main>
       <PageLayout id="hero" fullHeight>
-        Hero — {locale}
-        <Button shape="pill">JOIN THE TEAM</Button>
+        {t('hero.sectionName')}
+      </PageLayout>
+      <PageLayout id="tasks" fullHeight>
+        {t('tasks.sectionName')}
+        <Button shape="pill">{t('tasks.sectionName')}</Button>
       </PageLayout>
       <PageLayout id="benefits" fullHeight>
-        Benefits
+        {t('benefits.sectionName')}
       </PageLayout>
-      <PageLayout id="promo" fullHeight>
-        Promo
-      </PageLayout>
-      <PageLayout id="join" fullHeight>
-        Join
+      <PageLayout id="multiply" fullHeight>
+        {t('multiply.sectionName')}
       </PageLayout>
     </main>
   );
