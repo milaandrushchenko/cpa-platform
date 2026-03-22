@@ -1,34 +1,16 @@
-$field-mobile-height: 32px;
-$field-desktop-height: 36px;
-$field-height: 32px;
-$field-radius: 8px;
-$field-border: rgba($color-fuchsia-500, 0.3);
-$field-border-focus: $color-fuchsia-500;
-$field-bg: $color-white;
-$field-text: $color-purple-dark;
-$field-label: $color-purple-dark;
-$field-divider: rgba($color-fuchsia-500, 0.3);
-$field-error: #d92d20;
-
 .wrapper {
   position: relative;
   width: 100%;
 }
 
 .trigger {
+  @include field-control-base;
+
   position: relative;
-  width: 100%;
   height: $field-mobile-height;
-  font-weight: $font-weight-light;
   padding: $space-8 $space-24 $space-8 $space-12;
-  border: 1px solid $field-border;
-  border-radius: $field-radius;
-  background-color: $field-bg;
-  color: $field-text;
   text-align: left;
   cursor: pointer;
-  outline: none;
-  transition: border-color 0.2s ease;
 
   @include desktop {
     height: $field-desktop-height;
@@ -44,12 +26,7 @@ $field-error: #d92d20;
 }
 
 .label {
-  position: absolute;
-  top: 50%;
-  left: $space-12;
-  transform: translateY(-50%);
-  color: $field-label;
-  pointer-events: none;
+  @include field-label;
 }
 
 .labelHidden {
@@ -117,7 +94,6 @@ $field-error: #d92d20;
 
   &::-webkit-scrollbar {
     width: 10px;
-    padding: $space-6;
   }
 
   &::-webkit-scrollbar-track {
@@ -153,6 +129,5 @@ $field-error: #d92d20;
 }
 
 .errorText {
-  font-size: 12px;
-  color: $field-error;
+  @include field-error-text;
 }
