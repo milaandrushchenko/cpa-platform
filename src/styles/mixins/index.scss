@@ -12,3 +12,9 @@
     border-color 0.2s ease,
     color 0.2s ease;
 }
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

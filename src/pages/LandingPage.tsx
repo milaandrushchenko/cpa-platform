@@ -1,4 +1,4 @@
-import { Button } from '@components/Button';
+import { Button } from '@components/ui/Button';
 import { useScrollToHash } from '@hooks/useScrollToHash';
 import { PageLayout } from '@layouts/PageLayout';
 

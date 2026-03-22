@@ -1,0 +1,11 @@
+.button {
+  @include flex-center;
+  cursor: pointer;
+  width: 14px;
+  height: 12px;
+
+  @include desktop {
+    width: 18px;
+    height: 16px;
+  }
+}
