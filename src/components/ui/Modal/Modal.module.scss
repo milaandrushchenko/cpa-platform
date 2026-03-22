@@ -1,11 +1,11 @@
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: $z-index-modal;
   @include flex-center;
-  padding: 16px;
-  backdrop-filter: blur(20px);
-  background: rgba(12, 9, 14, 0.5);
+  padding: $space-16;
+  backdrop-filter: blur($blur-overlay);
+  background: $color-overlay;
 }
 
 .modal {
@@ -38,5 +38,8 @@
     fill: $bg-card-highlight;
     display: block;
     margin: 0 auto $space-40;
+
+    width: 45px;
+    height: 41px;
   }
 }

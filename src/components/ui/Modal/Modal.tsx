@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 import { type MouseEvent, type PropsWithChildren, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 import { CloseButton } from '../CloseButton';
 import { LogoIcon } from '../icons/LogoIcon';
@@ -23,9 +24,11 @@ export const Modal = ({ isOpen, onClose, className, children }: ModalProps) => {
     };
 
     document.addEventListener('keydown', handleEsc);
+    document.body.style.overflow = 'hidden';
 
     return () => {
       document.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = '';
     };
   }, [isOpen, onClose]);
 
@@ -37,13 +40,18 @@ export const Modal = ({ isOpen, onClose, className, children }: ModalProps) => {
 
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div className={styles.overlay} onClick={handleOverlayClick}>
-      <div className={clsx(styles.modal, className)}>
+      <div
+        className={clsx(styles.modal, className)}
+        role="dialog"
+        aria-modal="true"
+      >
         <CloseButton onClick={onClose} className={styles.closeButton} />
-        <LogoIcon size="md" className={styles.logo} />
+        <LogoIcon className={styles.logo} />
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 };

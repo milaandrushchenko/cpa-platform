@@ -1,5 +1,8 @@
 {
   "hero": {
     "sectionName": "Главная"
+  },
+  "globalCtas": {
+    "close": "Закрыть"
   }
 }

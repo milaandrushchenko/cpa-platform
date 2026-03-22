@@ -10,6 +10,7 @@ $color-violet-600: #9500dc;
 $color-purple-700: #560080;
 $color-purple-900: #220032;
 $color-plum-950: #14091a;
+$color-overlay: rgba(12, 9, 14, 0.5);
 
 // Semantic colors
 
@@ -127,6 +128,12 @@ $space-container-desktop: 30px;
 $space-container-desktop-lg: 50px;
 
 $container-max-width: 1340px;
+
+// Z-index
+$z-index-modal: 1000;
+
+// Blur
+$blur-overlay: 20px;
 
 // Media Queries ==============
 $breakpoint-desktop: 1024px;
