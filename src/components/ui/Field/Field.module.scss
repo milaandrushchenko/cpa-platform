@@ -32,6 +32,11 @@ $field-error: #d92d20;
   outline: none;
   transition: border-color 0.2s ease;
 
+  @include desktop {
+    height: $field-desktop-height;
+    font-size: $text-size-body;
+  }
+
   &::placeholder {
     color: transparent;
   }
