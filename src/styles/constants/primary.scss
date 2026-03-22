@@ -30,19 +30,12 @@ $text-color-on-cta: $color-black;
 
 $gradient-angle: 111.06deg;
 
-$gradient-hero-base: linear-gradient(
-  0deg,
-  $color-fuchsia-500,
-  $color-fuchsia-500
-);
-$gradient-hero-overlay: linear-gradient(
+$gradient-bg-default: linear-gradient(
   $gradient-angle,
   $color-orange-500 -3.49%,
   $color-purple-700 49.69%,
   $color-purple-900 91.86%
 );
-
-$bg-primary: $gradient-hero-base, $gradient-hero-overlay;
 
 $gradient-section-brand: linear-gradient(
   $gradient-angle,
