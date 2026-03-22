@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { type InputHTMLAttributes, forwardRef, useId } from 'react';
 
-import styles from './Field.module.scss';
+import styles from './TextField.module.scss';
 
 type TextFieldProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,

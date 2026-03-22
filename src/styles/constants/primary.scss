@@ -113,7 +113,9 @@ $font-weight-bold: 700;
 // Spacing
 
 $space-4: 4px;
+$space-6: 6px;
 $space-8: 8px;
+$space-10: 10px;
 $space-12: 12px;
 $space-16: 16px;
 $space-20: 20px;
@@ -131,6 +133,7 @@ $container-max-width: 1340px;
 
 // Z-index
 $z-index-modal: 1000;
+$z-index-dropdown: 10;
 
 // Blur
 $blur-overlay: 20px;
