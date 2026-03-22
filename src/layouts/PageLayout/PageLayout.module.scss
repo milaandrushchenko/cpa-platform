@@ -1,16 +1,25 @@
 .section {
   position: relative;
   padding-inline: $space-container-mobile;
+  display: flex;
+  flex-direction: column;
 }
 
 .fullHeight {
   min-height: 100svh;
 }
 
+.screenHeight {
+  height: 100svh;
+}
+
 .container {
   position: relative;
   z-index: 1;
-  height: 100vh;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .background {

@@ -15,7 +15,8 @@ $color-overlay: rgba(12, 9, 14, 0.5);
 
 // Semantic colors
 
-$bg-page: $color-black;
+$bg-page: $color-purple-700;
+$bg-page-dark: $color-purple-900;
 $bg-surface: $color-plum-950;
 $bg-card: $color-violet-600;
 $bg-card-highlight: $color-fuchsia-500;
@@ -37,6 +38,17 @@ $gradient-bg-default: linear-gradient(
   $color-purple-700 49.69%,
   $color-purple-900 91.86%
 );
+
+$gradient-bg-section-team-first-tile: linear-gradient(
+  220deg,
+  $color-violet-600 17.61%,
+  $color-purple-700 57.18%,
+  $color-purple-900 88.56%
+);
+
+$gradient-bg-section-team:
+  linear-gradient(277deg, #9500dc -4.49%, #560080 -80.31%, #220032 9.86%),
+  linear-gradient(78deg, #14091a 58.51%, #14091a 129.69%, #220032 199.86%);
 
 $gradient-section-brand: linear-gradient(
   $gradient-angle,
@@ -81,6 +93,7 @@ $font-size-24: 24px;
 $font-size-28: 28px;
 $font-size-32: 32px;
 $font-size-38: 38px;
+$font-size-40: 40px;
 $font-size-72: 72px;
 
 // Semantic typography
@@ -92,6 +105,7 @@ $text-size-body-lg: $font-size-20;
 $text-size-title-sm: $font-size-24;
 $text-size-title-md: $font-size-28;
 $text-size-title-lg: $font-size-32;
+$text-size-section-name-on-desktop: $font-size-40;
 $text-size-display-on-mobile: $font-size-38;
 $text-size-display-on-desktop: $font-size-72;
 

@@ -1,0 +1,101 @@
+.teamSection {
+  flex-grow: 1;
+  background: $gradient-bg-section-team;
+  overflow: hidden;
+
+  padding-bottom: 80px;
+  min-width: fit-content;
+
+  @include desktop {
+    padding-top: 96px;
+    overflow: unset;
+  }
+}
+
+.teamSectionContainer {
+  flex-grow: 1;
+  overflow-y: auto;
+
+  @include desktop {
+    overflow-y: unset;
+  }
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.logo {
+  @include logo;
+
+  margin-top: 20px;
+  position: sticky;
+  margin-bottom: 40px;
+}
+
+.sectionName {
+  @include section-name;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: $space-20;
+
+  @include desktop {
+    gap: $space-24;
+  }
+}
+
+// ================= TILES =================
+$first-tile-height-mobile: 500px;
+$tile-mobile-padding: $space-12;
+$first-tile-desktop-padding: $space-40;
+$bg-snake-url: url('@assets/img/snake/snake-diamond.png');
+
+.tile {
+  height: 100%;
+
+  &--first {
+    height: $first-tile-height-mobile;
+    padding: $tile-mobile-padding;
+
+    background-image: $bg-snake-url, $gradient-bg-section-team-first-tile;
+    background-size: contain, auto;
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    @include desktop {
+      padding: $first-tile-desktop-padding;
+      height: 100%;
+    }
+  }
+
+  &--default {
+    padding: $tile-mobile-padding;
+  }
+}
+
+.title {
+  font-family: $font-family-display;
+  font-weight: $font-weight-bold;
+  margin-bottom: $space-12;
+
+  &--page {
+    font-size: $text-size-body-lg;
+    line-height: 24px;
+  }
+
+  &--tile {
+    font-size: $text-size-title-md;
+    line-height: $text-size-title-md;
+    color: $color-yellow-300;
+  }
+}
+
+.tileText {
+  font-size: $text-size-body-lg;
+  line-height: 24px;
+  opacity: 0.7;
+}

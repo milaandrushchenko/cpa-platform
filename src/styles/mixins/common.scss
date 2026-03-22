@@ -39,3 +39,32 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin section-name {
+  $top-desktop: -60px;
+  $bottom-desktop: -60px;
+
+  position: absolute;
+  color: $color-yellow-300;
+  font-family: $font-family-display;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  text-wrap: nowrap;
+
+  font-size: $text-size-body-lg;
+
+  left: 50%;
+  bottom: $bottom-desktop;
+  transform: translateX(-50%);
+
+  @include desktop {
+    font-size: $text-size-section-name-on-desktop;
+
+    left: unset;
+    bottom: unset;
+    transform: unset;
+
+    top: $top-desktop;
+    right: 0;
+  }
+}
