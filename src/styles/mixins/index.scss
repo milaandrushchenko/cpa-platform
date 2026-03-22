@@ -19,6 +19,21 @@
     color 0.2s ease;
 }
 
+@mixin logo {
+  height: $logo-height-sm;
+  width: $logo-width-sm;
+
+  & > path,
+  ellipse {
+    fill: $color-white;
+  }
+
+  @include desktop {
+    height: $logo-height-lg;
+    width: $logo-width-lg;
+  }
+}
+
 @mixin flex-center {
   display: flex;
   align-items: center;

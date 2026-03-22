@@ -24,23 +24,21 @@
   "multiply": {
     "sectionName": "Multiply with us"
   },
-  "footer": {
-    "links": {
-      "social": [
-        {
-          "name": "Instagram",
-          "url": "https://www.instagram.com/multicpa/"
-        },
-        {
-          "name": "Telegram",
-          "url": "https://t.me/multicpa"
-        },
-        {
-          "name": "LinkedIn",
-          "url": "https://www.linkedin.com/company/multicpa/"
-        }
-      ]
-    }
+  "social": {
+    "links": [
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/multicpa/"
+      },
+      {
+        "name": "Telegram",
+        "url": "https://t.me/multicpa"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/company/multicpa/"
+      }
+    ]
   },
   "form": {
     "collect": {

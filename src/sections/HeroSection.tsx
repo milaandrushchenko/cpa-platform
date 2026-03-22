@@ -1,3 +1,5 @@
+import { LogoIcon } from '@assets/icons';
+import ContactWidgets from '@components/ContactWidgets/ContactWidgets';
 import { Button } from '@components/ui/Button';
 import SectionGrid from '@layouts/SectionGrid/SectionGrid';
 
@@ -5,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { PageLayout } from '@/layouts/PageLayout';
+import { type ContactWidgetDetails } from '@/types/general';
 
 import styles from './HeroSection.module.scss';
 
@@ -21,9 +24,15 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
+  const contactWidgets = t('social.links', {
+    returnObjects: true,
+  }) as Array<ContactWidgetDetails>;
+
   return (
     <PageLayout id="hero" fullHeight className={styles.bg}>
       <article className={styles.heroSection}>
+        <LogoIcon className={`desktopOnly ${styles.logo}`} />
+
         <SectionGrid desktop={{ singleColumnWidth: '54%' }}>
           <h1 className={styles.title}>
             {t('hero.title')}{' '}
@@ -40,8 +49,12 @@ export default function HeroSection() {
               ))}
             </span>
           </h1>
+
           <h2 className={styles.subtitle}>{t('hero.description')}</h2>
           <Button>{t('globalCtas.contact')}</Button>
+          <div className={`desktopOnly ${styles.widgets}`}>
+            <ContactWidgets widgets={contactWidgets} />
+          </div>
         </SectionGrid>
       </article>
     </PageLayout>

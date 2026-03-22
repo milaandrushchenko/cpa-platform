@@ -68,3 +68,12 @@ ul {
 *::after {
   box-sizing: border-box;
 }
+
+// Utility classes
+.desktopOnly {
+  display: none;
+
+  @media (min-width: $breakpoint-desktop) {
+    display: block;
+  }
+}
