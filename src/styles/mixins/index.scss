@@ -6,6 +6,12 @@
   }
 }
 
+@mixin desktop-lg {
+  @media (min-width: $breakpoint-desktop-lg) {
+    @content;
+  }
+}
+
 @mixin button-transition {
   transition:
     background-color 0.2s ease,
