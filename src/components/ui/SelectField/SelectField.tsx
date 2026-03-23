@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { useEffect, useId, useRef, useState } from 'react';
+import { type KeyboardEvent, useEffect, useId, useRef, useState } from 'react';
 
 import styles from './SelectField.module.scss';
 
@@ -31,6 +31,8 @@ export const SelectField = ({
   className,
 }: SelectFieldProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState(-1);
+
   const rootRef = useRef<HTMLDivElement>(null);
   const fieldId = useId();
 
@@ -51,9 +53,94 @@ export const SelectField = ({
     };
   }, []);
 
+  const openMenu = () => {
+    setIsOpen(true);
+
+    const selectedIndex = options.findIndex((option) => option.value === value);
+    setHighlightedIndex(selectedIndex >= 0 ? selectedIndex : 0);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    setHighlightedIndex(-1);
+  };
+
   const handleSelect = (optionValue: string) => {
     onChange(optionValue);
-    setIsOpen(false);
+    closeMenu();
+  };
+
+  const moveHighlight = (direction: 'next' | 'prev') => {
+    if (!options.length) return;
+
+    setHighlightedIndex((prev) => {
+      if (prev === -1) {
+        return direction === 'next' ? 0 : options.length - 1;
+      }
+
+      if (direction === 'next') {
+        return prev === options.length - 1 ? 0 : prev + 1;
+      }
+
+      return prev === 0 ? options.length - 1 : prev - 1;
+    });
+  };
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    switch (e.key) {
+      case 'ArrowDown':
+        e.preventDefault();
+
+        if (!isOpen) {
+          openMenu();
+          return;
+        }
+
+        moveHighlight('next');
+        break;
+
+      case 'ArrowUp':
+        e.preventDefault();
+
+        if (!isOpen) {
+          openMenu();
+          return;
+        }
+
+        moveHighlight('prev');
+        break;
+
+      case 'Enter':
+      case ' ':
+        e.preventDefault();
+
+        if (!isOpen) {
+          openMenu();
+          return;
+        }
+
+        if (highlightedIndex >= 0) {
+          handleSelect(options[highlightedIndex].value);
+        }
+        break;
+
+      case 'Home':
+        if (isOpen) {
+          e.preventDefault();
+          setHighlightedIndex(0);
+        }
+        break;
+
+      case 'End':
+        if (isOpen) {
+          e.preventDefault();
+          setHighlightedIndex(options.length - 1);
+        }
+        break;
+
+      default:
+        break;
+    }
   };
 
   return (
@@ -77,7 +164,8 @@ export const SelectField = ({
         aria-controls={`${fieldId}-listbox`}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${fieldId}-error` : undefined}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => (isOpen ? closeMenu() : openMenu())}
+        onKeyDown={handleKeyDown}
       >
         <span
           className={clsx(
@@ -106,8 +194,9 @@ export const SelectField = ({
             role="listbox"
             aria-labelledby={fieldId}
           >
-            {options.map((option) => {
+            {options.map((option, index) => {
               const isSelected = option.value === value;
+              const isHighlighted = index === highlightedIndex;
 
               return (
                 <li
@@ -121,8 +210,10 @@ export const SelectField = ({
                     className={clsx(
                       styles.option,
                       isSelected && styles.optionSelected,
+                      isHighlighted && styles.optionHighlighted,
                     )}
                     onClick={() => handleSelect(option.value)}
+                    onMouseEnter={() => setHighlightedIndex(index)}
                   >
                     {option.label}
                   </button>
