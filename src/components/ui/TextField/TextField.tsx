@@ -31,12 +31,11 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     const generatedId = useId();
     const fieldId = id ?? generatedId;
 
-    const hasValue =
-      value !== undefined
-        ? String(value).trim().length > 0
-        : defaultValue !== undefined
-          ? String(defaultValue).trim().length > 0
-          : false;
+    const isControlled = value !== undefined;
+
+    const currentValue = isControlled ? value : defaultValue;
+
+    const hasValue = String(currentValue ?? '').trim().length > 0;
 
     return (
       <div className={clsx(styles.fieldWrapper, className)}>

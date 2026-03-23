@@ -18,6 +18,7 @@ type SelectFieldProps = {
   isRequiredMark?: boolean;
   error?: string;
   className?: string;
+  disabled?: boolean;
 };
 
 export const SelectField = ({
@@ -29,11 +30,13 @@ export const SelectField = ({
   isRequiredMark = false,
   error,
   className,
+  disabled = false,
 }: SelectFieldProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
 
   const rootRef = useRef<HTMLDivElement>(null);
+  const optionRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const fieldId = useId();
 
   const selectedOption = options.find((option) => option.value === value);
@@ -43,6 +46,7 @@ export const SelectField = ({
     const handleClickOutside = (event: MouseEvent) => {
       if (!rootRef.current?.contains(event.target as Node)) {
         setIsOpen(false);
+        setHighlightedIndex(-1);
       }
     };
 
@@ -52,6 +56,14 @@ export const SelectField = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    if (!isOpen || highlightedIndex < 0) return;
+
+    optionRefs.current[highlightedIndex]?.scrollIntoView({
+      block: 'nearest',
+    });
+  }, [highlightedIndex, isOpen]);
 
   const openMenu = () => {
     setIsOpen(true);
@@ -163,6 +175,7 @@ export const SelectField = ({
         aria-expanded={isOpen}
         aria-controls={`${fieldId}-listbox`}
         aria-invalid={Boolean(error)}
+        disabled={disabled}
         aria-describedby={error ? `${fieldId}-error` : undefined}
         onClick={() => (isOpen ? closeMenu() : openMenu())}
         onKeyDown={handleKeyDown}
@@ -206,6 +219,9 @@ export const SelectField = ({
                   className={styles.optionItem}
                 >
                   <button
+                    ref={(element) => {
+                      optionRefs.current[index] = element;
+                    }}
                     type="button"
                     className={clsx(
                       styles.option,
