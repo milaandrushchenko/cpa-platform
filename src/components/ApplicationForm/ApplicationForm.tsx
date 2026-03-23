@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { SelectField } from '@/components/ui/SelectField/SelectField';
 import { TextField } from '@/components/ui/TextField/TextField';
 
+import { Button } from '../ui/Button';
 import styles from './ApplicationForm.module.scss';
 
 export const ApplicationForm = () => {
@@ -12,6 +13,10 @@ export const ApplicationForm = () => {
 
   return (
     <form className={styles.form}>
+      <p className={styles.note}>
+        Fields with an asterisk (<span className={styles.requiredMark}>*</span>)
+        are mandatory
+      </p>
       <TextField
         label="Your Name"
         name="name"
@@ -44,6 +49,10 @@ export const ApplicationForm = () => {
           required
         />
       </div>
+
+      <Button shape="primary" type="submit" className={styles.submitBtn}>
+        Submit
+      </Button>
     </form>
   );
 };

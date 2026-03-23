@@ -44,6 +44,7 @@
 .required {
   color: $field-border-focus;
   margin-left: 2px;
+  font-weight: $font-weight-regular;
 }
 
 .error .control {

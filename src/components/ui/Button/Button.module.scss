@@ -41,8 +41,14 @@ $button-default-face-height-desktop: calc(
   font-weight: $font-weight-bold;
 
   &--default,
-  &--pill {
+  &--pill,
+  &--primary {
     @include button-transition;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 
   // ================= DEFAULT =================
@@ -79,6 +85,11 @@ $button-default-face-height-desktop: calc(
       border-color: $color-purple-dark;
 
       @include button-transition;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     }
 
     //  top face
@@ -150,6 +161,23 @@ $button-default-face-height-desktop: calc(
       color: $color-purple-dark;
       background-color: $color-yellow-300;
       border-color: $color-purple-dark;
+    }
+  }
+
+  &--primary {
+    min-height: 35px;
+    padding-inline: $space-40;
+    border-radius: 8px;
+
+    background-color: $color-yellow-300;
+    color: $color-purple-dark;
+
+    font-weight: $font-weight-medium;
+
+    &:hover,
+    &:active {
+      background-color: $color-fuchsia-500;
+      color: $color-white;
     }
   }
 }

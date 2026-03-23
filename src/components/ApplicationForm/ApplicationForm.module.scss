@@ -9,6 +9,16 @@
   }
 }
 
+.note {
+  font-weight: $font-weight-light;
+  padding-bottom: $space-8;
+  color: $field-text;
+
+  .requiredMark {
+    color: $field-border-focus;
+  }
+}
+
 .row {
   display: flex;
   flex-direction: column;
@@ -25,4 +35,10 @@
 
 .contactValue {
   flex: 1;
+}
+
+.submitBtn {
+  display: block;
+  margin-top: $space-20;
+  align-self: center;
 }
