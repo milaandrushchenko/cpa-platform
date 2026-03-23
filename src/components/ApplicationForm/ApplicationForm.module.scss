@@ -1,8 +1,12 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: $space-16;
+  gap: $space-12;
   overflow: visible;
+
+  @include desktop {
+    gap: $space-8;
+  }
 }
 
 .row {
