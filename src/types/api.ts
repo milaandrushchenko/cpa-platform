@@ -27,15 +27,20 @@ export interface TasksResponse {
   tiles: TaskTile[];
 }
 
-export type ContactMethod = 'telegram' | 'whatsapp' | 'email';
+export const contactMethods = ['telegram', 'whatsapp', 'email'] as const;
+export type ContactMethod = (typeof contactMethods)[number];
 
-export interface SubmitFormPayload {
+export interface ContactFormPayload {
   name?: string;
   method: ContactMethod;
   contact: string;
 }
 
-export interface SubmitFormResponse {
+export interface ContactFormResponse {
   message: string;
-  data: SubmitFormPayload;
+  data?: ContactFormPayload;
 }
+
+export type ContactFormErrors = Partial<
+  Record<keyof ContactFormPayload, string>
+>;
