@@ -2,25 +2,25 @@ import { useState } from 'react';
 
 import { SelectField } from '@/components/ui/SelectField/SelectField';
 import { TextField } from '@/components/ui/TextField/TextField';
+import { contactMethods } from '@/config/contactMethods';
+import { useSubmitContactForm } from '@/hooks/useSubmitContactForm';
 import {
   type ContactFormErrors,
   type ContactFormPayload,
   type ContactMethod,
-  contactMethods,
 } from '@/types/api';
 
+import { contactFormSchema } from '../../config/schemas/contactForm.schema';
 import { Button } from '../ui/Button';
 import styles from './ApplicationForm.module.scss';
-import { applicationFormSchema } from './ApplicationForm.schema';
 
 type ApplicationFormState = {
-  name: string;
+  name?: string;
   method: ContactMethod | '';
   contact: string;
 };
 
 const INITIAL_VALUES: ApplicationFormState = {
-  name: '',
   method: '',
   contact: '',
 };
@@ -30,41 +30,65 @@ export const ApplicationForm = () => {
     useState<ApplicationFormState>(INITIAL_VALUES);
   const [errors, setErrors] = useState<ContactFormErrors>({});
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const { submit, isLoading, error: serverError } = useSubmitContactForm();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setErrors({});
+    setSuccessMessage('');
 
-    const validationResult = applicationFormSchema.safeParse(formData);
+    const validationResult = contactFormSchema.safeParse(formData);
 
     if (!validationResult.success) {
       const fieldErrors = validationResult.error.flatten().fieldErrors;
-      const nextErrors: ContactFormErrors = {};
 
-      (Object.keys(fieldErrors) as Array<keyof ContactFormPayload>).forEach(
-        (key) => {
-          nextErrors[key] = fieldErrors[key]?.[0];
-        },
-      );
+      setErrors({
+        name: fieldErrors.name?.[0],
+        method: fieldErrors.method?.[0],
+        contact: fieldErrors.contact?.[0],
+      });
 
-      setErrors(nextErrors);
       return;
     }
 
-    console.log('valid payload', validationResult.data);
+    if (validationResult.data.method === '') {
+      return;
+    }
+
+    const payload: ContactFormPayload = {
+      name: validationResult.data.name || undefined,
+      method: validationResult.data.method,
+      contact: validationResult.data.contact,
+    };
+
+    const result = await submit(payload);
+
+    if (result.success) {
+      setSuccessMessage(result.data.message);
+      setFormData(INITIAL_VALUES);
+    }
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <p className={styles.note}>
         Fields with an asterisk (<span className={styles.requiredMark}>*</span>)
         are mandatory
       </p>
 
+      {serverError && <p className={styles.submitError}>{serverError}</p>}
+
+      {successMessage && (
+        <p className={styles.successMessage}>{successMessage}</p>
+      )}
+
       <TextField
         label="Your Name"
         name="name"
-        value={formData.name ?? ''}
+        value={formData.name}
         onChange={(e) =>
           setFormData((prev) => ({ ...prev, name: e.target.value }))
         }
@@ -80,7 +104,7 @@ export const ApplicationForm = () => {
           onChange={(value) =>
             setFormData((prev) => ({
               ...prev,
-              method: value as ContactFormPayload['method'],
+              method: value as ApplicationFormState['method'],
             }))
           }
           isRequiredMark
@@ -100,13 +124,17 @@ export const ApplicationForm = () => {
             setFormData((prev) => ({ ...prev, contact: e.target.value }))
           }
           isRequiredMark
-          required
           error={errors.contact}
         />
       </div>
 
-      <Button shape="primary" type="submit" className={styles.submitBtn}>
-        Submit
+      <Button
+        shape="primary"
+        type="submit"
+        className={styles.submitBtn}
+        disabled={isLoading}
+      >
+        {isLoading ? 'Submitting...' : 'Submit'}
       </Button>
     </form>
   );

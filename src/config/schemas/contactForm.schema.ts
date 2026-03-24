@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
-import { contactMethods } from '@/types/api';
+import { contactMethods } from '../contactMethods';
 
-export const applicationFormSchema = z
+export const contactFormSchema = z
   .object({
-    name: z.string().trim(),
+    name: z.string().trim().optional(),
     method: z.union([z.literal(''), z.enum(contactMethods)]),
     contact: z.string().trim(),
   })
