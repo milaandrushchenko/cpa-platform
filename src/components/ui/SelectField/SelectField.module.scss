@@ -58,13 +58,13 @@
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 6px solid $field-border-focus;
-  transform: translateY(-40%) rotate(180deg);
+  transform: translateY(-40%) rotate(0deg);
   transition: transform 0.2s ease;
   pointer-events: none;
 }
 
 .arrowOpen {
-  transform: translateY(-40%) rotate(0deg);
+  transform: translateY(-40%) rotate(180deg);
 }
 
 .dropdown {
