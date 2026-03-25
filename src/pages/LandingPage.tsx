@@ -5,8 +5,7 @@ import { PageLayout } from '@layouts/PageLayout';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ApplicationForm } from '@/components/ApplicationForm/ApplicationForm';
-import { Modal } from '@/components/ui/Modal';
+import ContactModal from '@/components/ApplicationForm/ContactModal';
 
 export default function LandingPage() {
   const { t } = useTranslation();
@@ -23,9 +22,7 @@ export default function LandingPage() {
       <PageLayout id="hero" fullHeight>
         {t('hero.sectionName')}
         <Button onClick={openModal}>Open modal</Button>
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <ApplicationForm />
-        </Modal>
+        <ContactModal isOpen={isModalOpen} onClose={closeModal} />
       </PageLayout>
       <PageLayout id="tasks" fullHeight>
         {t('tasks.sectionName')}

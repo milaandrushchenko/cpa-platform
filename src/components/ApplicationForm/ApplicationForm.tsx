@@ -4,11 +4,7 @@ import { SelectField } from '@/components/ui/SelectField/SelectField';
 import { TextField } from '@/components/ui/TextField/TextField';
 import { contactMethods } from '@/config/contactMethods';
 import { useSubmitContactForm } from '@/hooks/useSubmitContactForm';
-import {
-  type ContactFormErrors,
-  type ContactFormPayload,
-  type ContactMethod,
-} from '@/types/api';
+import { type ContactFormErrors, type ContactMethod } from '@/types/api';
 
 import { contactFormSchema } from '../../config/schemas/contactForm.schema';
 import { Button } from '../ui/Button';
@@ -25,12 +21,16 @@ const INITIAL_VALUES: ApplicationFormState = {
   contact: '',
 };
 
-export const ApplicationForm = () => {
+type ApplicationFormProps = {
+  setSuccessMessage: (val: string) => void;
+};
+
+export const ApplicationForm = ({
+  setSuccessMessage,
+}: ApplicationFormProps) => {
   const [formData, setFormData] =
     useState<ApplicationFormState>(INITIAL_VALUES);
   const [errors, setErrors] = useState<ContactFormErrors>({});
-
-  const [successMessage, setSuccessMessage] = useState('');
 
   const { submit, isLoading, error: serverError } = useSubmitContactForm();
 
@@ -44,27 +44,19 @@ export const ApplicationForm = () => {
 
     if (!validationResult.success) {
       const fieldErrors = validationResult.error.flatten().fieldErrors;
+      const newErrors: ContactFormErrors = {};
 
-      setErrors({
-        name: fieldErrors.name?.[0],
-        method: fieldErrors.method?.[0],
-        contact: fieldErrors.contact?.[0],
-      });
+      (Object.keys(fieldErrors) as Array<keyof ContactFormErrors>).forEach(
+        (key) => {
+          newErrors[key] = fieldErrors[key]?.[0];
+        },
+      );
+      setErrors(newErrors);
 
       return;
     }
 
-    if (validationResult.data.method === '') {
-      return;
-    }
-
-    const payload: ContactFormPayload = {
-      name: validationResult.data.name || undefined,
-      method: validationResult.data.method,
-      contact: validationResult.data.contact,
-    };
-
-    const result = await submit(payload);
+    const result = await submit(validationResult.data);
 
     if (result.success) {
       setSuccessMessage(result.data.message);
@@ -80,10 +72,6 @@ export const ApplicationForm = () => {
       </p>
 
       {serverError && <p className={styles.submitError}>{serverError}</p>}
-
-      {successMessage && (
-        <p className={styles.successMessage}>{successMessage}</p>
-      )}
 
       <TextField
         label="Your Name"

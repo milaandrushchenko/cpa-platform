@@ -19,6 +19,10 @@ export async function request<T>(promise: Promise<{ data: T }>): Promise<T> {
       }
     }
 
-    throw new Error('Request failed');
+    throw new Error(
+      axios.isAxiosError(error)
+        ? error.message || 'Request failed'
+        : 'Request failed',
+    );
   }
 }

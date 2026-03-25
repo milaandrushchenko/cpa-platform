@@ -5,18 +5,10 @@ import { contactMethods } from '../contactMethods';
 export const contactFormSchema = z
   .object({
     name: z.string().trim().optional(),
-    method: z.union([z.literal(''), z.enum(contactMethods)]),
+    method: z.enum(contactMethods),
     contact: z.string().trim(),
   })
   .superRefine((data, ctx) => {
-    if (data.method === '') {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ['method'],
-        message: 'Please select a contact method',
-      });
-    }
-
     if (!data.contact) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
