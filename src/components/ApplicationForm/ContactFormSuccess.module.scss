@@ -5,6 +5,7 @@
   text-align: center;
   color: $color-purple-dark;
   min-height: 100%;
+  flex: 1;
 }
 
 .title {
@@ -14,15 +15,21 @@
   font-family: $font-family-display;
   margin-bottom: $space-12;
   margin-top: $space-24;
+
+  @include desktop {
+    margin-top: $space-12;
+  }
 }
 
 .description {
   font-size: $text-size-body;
   font-weight: $font-weight-light;
-  margin-bottom: $space-64;
+
+  @include desktop {
+    font-weight: $font-weight-regular;
+  }
 }
 
-.button {
+.doneBtn {
   margin-top: auto;
-  align-self: center;
 }

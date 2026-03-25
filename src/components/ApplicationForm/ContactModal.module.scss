@@ -1,5 +1,6 @@
 .modal {
   min-height: 430px;
-  display: flex;
-  flex-direction: column;
+  @include desktop {
+    min-height: 380px;
+  }
 }

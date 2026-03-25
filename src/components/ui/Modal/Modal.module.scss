@@ -10,6 +10,8 @@
 
 .modal {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 560px;
   border-radius: 12px;
@@ -40,5 +42,10 @@
 
     width: 45px;
     height: 41px;
+
+    @include desktop {
+      width: 56px;
+      height: 52px;
+    }
   }
 }
