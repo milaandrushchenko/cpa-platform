@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { SelectField } from '@/components/ui/SelectField/SelectField';
 import { TextField } from '@/components/ui/TextField/TextField';
@@ -31,6 +32,8 @@ export const ApplicationForm = ({
   const [formData, setFormData] =
     useState<ApplicationFormState>(INITIAL_VALUES);
   const [errors, setErrors] = useState<ContactFormErrors>({});
+
+  const { t } = useTranslation();
 
   const { submit, isLoading, error: serverError } = useSubmitContactForm();
 
@@ -67,14 +70,18 @@ export const ApplicationForm = ({
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <p className={styles.note}>
-        Fields with an asterisk (<span className={styles.requiredMark}>*</span>)
-        are mandatory
+        <Trans
+          i18nKey="form.collect.rule"
+          components={{
+            mark: <span className={styles.requiredMark} />,
+          }}
+        />
       </p>
 
       {serverError && <p className={styles.submitError}>{serverError}</p>}
 
       <TextField
-        label="Your Name"
+        label={t('form.collect.placeholders.name')}
         name="name"
         value={formData.name}
         onChange={(e) =>
@@ -86,7 +93,7 @@ export const ApplicationForm = ({
       <div className={styles.row}>
         <SelectField
           className={styles.contactMethod}
-          label="Contact Method"
+          label={t('form.collect.placeholders.contactMethod')}
           name="method"
           value={formData.method}
           onChange={(value) =>
@@ -105,7 +112,7 @@ export const ApplicationForm = ({
 
         <TextField
           className={styles.contactValue}
-          label="Your Contact"
+          label={t('form.collect.placeholders.contact')}
           name="contact"
           value={formData.contact}
           onChange={(e) =>
@@ -122,7 +129,7 @@ export const ApplicationForm = ({
         className={styles.submitBtn}
         disabled={isLoading}
       >
-        {isLoading ? 'Submitting...' : 'Submit'}
+        {isLoading ? t('globalCtas.submitting') : t('globalCtas.submit')}
       </Button>
     </form>
   );

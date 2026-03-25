@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { Button } from '../ui/Button';
 import styles from './ContactFormSuccess.module.scss';
 
@@ -6,13 +8,12 @@ type ContactFormSuccessProps = {
 };
 
 const ContactFormSuccess = ({ onDone }: ContactFormSuccessProps) => {
+  const { t } = useTranslation();
   return (
     <section className={styles.success} aria-live="polite" aria-atomic="true">
-      <h2 className={styles.title}>We have received your application!</h2>
+      <h2 className={styles.title}>{t('form.submit.title')}</h2>
 
-      <p className={styles.description}>
-        We will process your request and get in touch with you
-      </p>
+      <p className={styles.description}>{t('form.submit.description')}</p>
 
       <Button
         shape="primary"
@@ -20,7 +21,7 @@ const ContactFormSuccess = ({ onDone }: ContactFormSuccessProps) => {
         onClick={onDone}
         className={styles.doneBtn}
       >
-        Done
+        {t('globalCtas.done')}
       </Button>
     </section>
   );
