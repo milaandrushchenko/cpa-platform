@@ -79,6 +79,7 @@ $font-size-20: 20px;
 $font-size-24: 24px;
 $font-size-28: 28px;
 $font-size-32: 32px;
+$font-size-38: 38px;
 $font-size-72: 72px;
 
 // Semantic typography
@@ -90,11 +91,15 @@ $text-size-body-lg: $font-size-20;
 $text-size-title-sm: $font-size-24;
 $text-size-title-md: $font-size-28;
 $text-size-title-lg: $font-size-32;
-$text-size-display: $font-size-72;
+$text-size-display-on-mobile: $font-size-38;
+$text-size-display-on-desktop: $font-size-72;
 
 // Optional, if needed later
 $text-size-button: $font-size-18;
 $text-size-label: $font-size-18;
+
+// Line heights
+$line-height-primary: 1.2;
 
 // Font weights
 

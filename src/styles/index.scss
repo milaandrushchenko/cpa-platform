@@ -57,6 +57,12 @@ p {
   line-height: inherit;
 }
 
+ul {
+  list-style: none;
+  margin: unset;
+  padding: unset;
+}
+
 *,
 *::before,
 *::after {

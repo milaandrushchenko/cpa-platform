@@ -10,8 +10,9 @@
   },
   "hero": {
     "sectionName": "Hero",
-    "title": "Practice makes profit",
-    "description": "We provide effective solutions, tested and refined on our own products and ad budgets"
+    "title": "Practice makes",
+    "description": "We provide effective solutions, tested and refined on our own products and ad budgets",
+    "businessValues": { "profit": "profit", "growth": "growth" }
   },
   "tasks": {
     "sectionName": "Multi-tasks"
@@ -61,6 +62,6 @@
     "back": "Take me back",
     "scrollToTop": "Scroll to top",
     "done": "Done",
-    "close": "Close"
+    "contact": "Get in touch "
   }
 }
