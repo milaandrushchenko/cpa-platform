@@ -1,0 +1,16 @@
+$icon-size: 40px;
+
+.widgetsContainer {
+  display: flex;
+  gap: $space-30;
+}
+
+.icon {
+  height: $icon-size;
+  width: $icon-size;
+  fill: $color-white;
+}
+
+.icon:hover {
+  cursor: pointer;
+}

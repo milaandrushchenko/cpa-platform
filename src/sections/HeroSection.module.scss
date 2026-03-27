@@ -22,6 +22,15 @@ $bg-snake-url: url('@assets/img/snake/snake-coiled.png');
   }
 }
 
+.logo {
+  @include logo;
+
+  @include desktop {
+    position: absolute;
+    top: $space-30;
+  }
+}
+
 .title {
   font-family: $font-family-display;
   font-size: $text-size-display-on-mobile;
@@ -52,10 +61,14 @@ $bg-snake-url: url('@assets/img/snake/snake-coiled.png');
 .subtitle {
   font-size: $text-size-body;
   margin-bottom: $space-20;
-  line-height: $line-height-primary;
 
   @include desktop {
     font-size: $text-size-body-lg;
     margin-bottom: $space-32;
   }
+}
+
+.widgets {
+  position: absolute;
+  bottom: $space-48;
 }
