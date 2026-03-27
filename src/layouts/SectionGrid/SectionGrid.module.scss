@@ -1,0 +1,15 @@
+.gridWrapper {
+  display: grid;
+  grid-template-columns: var(--grid-mobile);
+  gap: var(--gap-mobile);
+
+  @include desktop {
+    grid-template-columns: var(--grid-desktop);
+    gap: var(--gap-desktop);
+  }
+
+  @include desktop-lg {
+    grid-template-columns: var(--grid-desktop-lg);
+    gap: var(--gap-desktop-lg);
+  }
+}
