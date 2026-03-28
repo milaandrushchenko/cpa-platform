@@ -10,8 +10,9 @@
   },
   "hero": {
     "sectionName": "Hero",
-    "title": "Practice makes profit",
-    "description": "We provide effective solutions, tested and refined on our own products and ad budgets"
+    "title": "Practice makes",
+    "description": "We provide effective solutions, tested and refined on our own products and ad budgets",
+    "businessValues": { "profit": "profit", "growth": "growth" }
   },
   "tasks": {
     "sectionName": "Multi-tasks"
@@ -23,23 +24,21 @@
   "multiply": {
     "sectionName": "Multiply with us"
   },
-  "footer": {
-    "links": {
-      "social": [
-        {
-          "name": "Instagram",
-          "url": "https://www.instagram.com/multicpa/"
-        },
-        {
-          "name": "Telegram",
-          "url": "https://t.me/multicpa"
-        },
-        {
-          "name": "LinkedIn",
-          "url": "https://www.linkedin.com/company/multicpa/"
-        }
-      ]
-    }
+  "social": {
+    "links": [
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/multicpa/"
+      },
+      {
+        "name": "Telegram",
+        "url": "https://t.me/multicpa"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/company/multicpa/"
+      }
+    ]
   },
   "form": {
     "collect": {
@@ -61,6 +60,6 @@
     "back": "Take me back",
     "scrollToTop": "Scroll to top",
     "done": "Done",
-    "close": "Close"
+    "contact": "Get in touch "
   }
 }

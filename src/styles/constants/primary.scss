@@ -31,19 +31,12 @@ $text-color-on-cta: $color-black;
 
 $gradient-angle: 111.06deg;
 
-$gradient-hero-base: linear-gradient(
-  0deg,
-  $color-fuchsia-500,
-  $color-fuchsia-500
-);
-$gradient-hero-overlay: linear-gradient(
+$gradient-bg-default: linear-gradient(
   $gradient-angle,
   $color-orange-500 -3.49%,
   $color-purple-700 49.69%,
   $color-purple-900 91.86%
 );
-
-$bg-primary: $gradient-hero-base, $gradient-hero-overlay;
 
 $gradient-section-brand: linear-gradient(
   $gradient-angle,
@@ -87,6 +80,7 @@ $font-size-20: 20px;
 $font-size-24: 24px;
 $font-size-28: 28px;
 $font-size-32: 32px;
+$font-size-38: 38px;
 $font-size-72: 72px;
 
 // Semantic typography
@@ -98,11 +92,15 @@ $text-size-body-lg: $font-size-20;
 $text-size-title-sm: $font-size-24;
 $text-size-title-md: $font-size-28;
 $text-size-title-lg: $font-size-32;
-$text-size-display: $font-size-72;
+$text-size-display-on-mobile: $font-size-38;
+$text-size-display-on-desktop: $font-size-72;
 
 // Optional, if needed later
 $text-size-button: $font-size-18;
 $text-size-label: $font-size-18;
+
+// Line heights
+$line-height-primary: 1.2;
 
 // Font weights
 
@@ -125,6 +123,7 @@ $space-30: 30px;
 $space-32: 32px;
 $space-36: 36px;
 $space-40: 40px;
+$space-48: 48px;
 
 $space-container-mobile: 16px;
 $space-container-desktop: 30px;
@@ -142,3 +141,9 @@ $blur-overlay: 20px;
 // Media Queries ==============
 $breakpoint-desktop: 1024px;
 $breakpoint-desktop-lg: 1440px;
+
+// Logo
+$logo-height-sm: 24px;
+$logo-height-lg: 42px;
+$logo-width-sm: 26px;
+$logo-width-lg: 46px;
