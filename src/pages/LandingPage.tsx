@@ -1,12 +1,12 @@
+import ContactModal from '@components/ApplicationForm/ContactModal';
 import { Button } from '@components/ui/Button';
 import { useScrollToHash } from '@hooks/useScrollToHash';
 import { PageLayout } from '@layouts/PageLayout';
 import HeroSection from '@sections/HeroSection';
+import BenefitsSection from '@sections/benefitsSection/BenefitsSection';
 
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
-import ContactModal from '@/components/ApplicationForm/ContactModal';
 
 export default function LandingPage() {
   const { t } = useTranslation();
@@ -28,9 +28,7 @@ export default function LandingPage() {
         {t('tasks.sectionName')}
         <Button shape="pill">{t('tasks.sectionName')}</Button>
       </PageLayout>
-      <PageLayout id="benefits" fullHeight>
-        {t('benefits.sectionName')}
-      </PageLayout>
+      <BenefitsSection />
       <PageLayout id="multiply" fullHeight>
         {t('multiply.sectionName')}
       </PageLayout>

@@ -1,0 +1,24 @@
+$bg-snake-url: url('@assets/img/snake/snake-moving.png');
+$bg-snake-width: 390px;
+
+.bg {
+  width: 100%;
+  height: 100%;
+  min-width: fit-content;
+  background: $gradient-section-brand, $color-purple-700;
+  background-repeat: no-repeat;
+
+  @include desktop {
+    background-image: $bg-snake-url, $gradient-bg-default;
+
+    background-size:
+      $bg-snake-width auto,
+      auto;
+
+    background-position:
+      50% 60%,
+      center;
+
+    background-repeat: no-repeat;
+  }
+}
