@@ -1,0 +1,14 @@
+@use './primary' as *;
+
+$field-mobile-height: 32px;
+$field-desktop-height: 36px;
+$field-radius: 8px;
+
+$field-border: rgba($color-fuchsia-500, 0.3);
+$field-border-focus: $color-fuchsia-500;
+$field-bg: $color-white;
+$field-text: $color-purple-dark;
+$field-label: $color-purple-dark;
+$field-divider: rgba($color-fuchsia-500, 0.3);
+$field-option-hover: rgba($color-fuchsia-500, 0.12);
+$field-error: $color-error-500;

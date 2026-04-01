@@ -7,7 +7,7 @@ import styles from './Button.module.scss';
 
 type ButtonProps = PropsWithChildren<
   {
-    shape?: 'default' | 'pill';
+    shape?: 'featured' | 'pill' | 'primary';
     icon?: ReactNode;
   } & ButtonHTMLAttributes<HTMLButtonElement>
 >;
@@ -15,7 +15,8 @@ type ButtonProps = PropsWithChildren<
 export const Button = ({
   children,
   icon,
-  shape = 'default',
+  shape = 'featured',
+  className,
   ...props
 }: ButtonProps) => {
   const resolvedIcon =
@@ -24,7 +25,7 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={clsx(styles.button, styles[`button--${shape}`])}
+      className={clsx(styles.button, styles[`button--${shape}`], className)}
       {...props}
     >
       <span className={styles.label}>{children}</span>

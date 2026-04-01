@@ -1,0 +1,44 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-12;
+  overflow: visible;
+
+  @include desktop {
+    gap: $space-8;
+  }
+}
+
+.note {
+  font-weight: $font-weight-light;
+  padding-bottom: $space-8;
+  color: $field-text;
+
+  .requiredMark {
+    color: $field-border-focus;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: $space-12;
+
+  @include desktop {
+    flex-direction: row;
+  }
+}
+
+.contactMethod {
+  flex: 0 0 40%;
+}
+
+.contactValue {
+  flex: 1;
+}
+
+.submitBtn {
+  display: block;
+  margin-top: $space-20;
+  align-self: center;
+}

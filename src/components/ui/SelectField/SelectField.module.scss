@@ -1,0 +1,146 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.trigger {
+  @include field-control-base;
+
+  position: relative;
+  height: $field-mobile-height;
+  padding: $space-8 $space-24 $space-8 $space-12;
+  text-align: left;
+  cursor: pointer;
+
+  @include desktop {
+    height: $field-desktop-height;
+    font-size: $text-size-body;
+  }
+}
+
+.open .trigger {
+  border-color: $field-border-focus;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+.trigger:focus-visible {
+  border-color: $field-border-focus;
+}
+
+.label {
+  @include field-label;
+}
+
+.labelHidden {
+  opacity: 0;
+}
+
+.required {
+  margin-left: 2px;
+  color: $field-border-focus;
+  font-weight: $font-weight-regular;
+}
+
+.selectedValue {
+  display: block;
+  color: $field-text;
+  line-height: 1;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  right: $space-10;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid $field-border-focus;
+  transform: translateY(-40%) rotate(0deg);
+  transition: transform 0.2s ease;
+  pointer-events: none;
+}
+
+.arrowOpen {
+  transform: translateY(-40%) rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: $field-mobile-height;
+  left: 0;
+  width: 100%;
+  border: 1px solid $field-border-focus;
+  border-top: none;
+  border-bottom-left-radius: $field-radius;
+  border-bottom-right-radius: $field-radius;
+  background-color: $field-bg;
+  z-index: $z-index-dropdown;
+
+  @include desktop {
+    top: $field-desktop-height;
+  }
+}
+
+.divider {
+  height: 1px;
+  margin: 0 $space-12;
+  background-color: $field-divider;
+}
+
+.list {
+  max-height: 140px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color-fuchsia-500, 0.5);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+}
+
+.optionItem {
+  margin: 0;
+}
+
+.option {
+  width: 100%;
+  padding: $space-10 $space-12;
+  border: none;
+  font-weight: $font-weight-light;
+  background: transparent;
+  color: $field-text;
+  text-align: left;
+  cursor: pointer;
+}
+
+.option:hover,
+.option:focus-visible,
+.optionHighlighted,
+.option:active,
+.optionHighlighted {
+  background-color: $field-option-hover;
+}
+
+.error .trigger,
+.error .dropdown {
+  border-color: $field-error;
+}
+
+.errorText {
+  @include field-error-text;
+}

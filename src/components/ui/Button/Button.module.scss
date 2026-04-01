@@ -21,14 +21,14 @@ $button-skew-side: -35deg;
 $button-letter-spacing: 0.2em;
 
 // heights
-$button-default-total-height-mobile: 60px;
-$button-default-total-height-desktop: 82px;
+$button-featured-total-height-mobile: 60px;
+$button-featured-total-height-desktop: 82px;
 
-$button-default-face-height-mobile: calc(
-  #{$button-default-total-height-mobile} - #{$button-depth-y}
+$button-featured-face-height-mobile: calc(
+  #{$button-featured-total-height-mobile} - #{$button-depth-y}
 );
-$button-default-face-height-desktop: calc(
-  #{$button-default-total-height-desktop} - #{$button-depth-y}
+$button-featured-face-height-desktop: calc(
+  #{$button-featured-total-height-desktop} - #{$button-depth-y}
 );
 
 .button {
@@ -40,16 +40,22 @@ $button-default-face-height-desktop: calc(
   font-family: $font-family-display;
   font-weight: $font-weight-bold;
 
-  &--default,
-  &--pill {
+  &--featured,
+  &--pill,
+  &--primary {
     @include button-transition;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 
-  // ================= DEFAULT =================
-  &--default {
+  // ================= FEATURED =================
+  &--featured {
     position: relative;
 
-    min-height: $button-default-face-height-mobile;
+    min-height: $button-featured-face-height-mobile;
     padding-inline: 25px;
 
     font-size: $text-size-body-md;
@@ -64,7 +70,7 @@ $button-default-face-height-desktop: calc(
     margin-right: $button-side-width;
 
     @include desktop {
-      min-height: $button-default-face-height-desktop;
+      min-height: $button-featured-face-height-desktop;
       padding-inline: 30px;
       font-size: $text-size-title-sm;
     }
@@ -79,6 +85,11 @@ $button-default-face-height-desktop: calc(
       border-color: $color-purple-dark;
 
       @include button-transition;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     }
 
     //  top face
@@ -150,6 +161,23 @@ $button-default-face-height-desktop: calc(
       color: $color-purple-dark;
       background-color: $color-yellow-300;
       border-color: $color-purple-dark;
+    }
+  }
+
+  &--primary {
+    min-height: 35px;
+    padding-inline: $space-40;
+    border-radius: 8px;
+
+    background-color: $color-yellow-300;
+    color: $color-purple-dark;
+
+    font-weight: $font-weight-medium;
+
+    &:hover,
+    &:active {
+      background-color: $color-fuchsia-500;
+      color: $color-white;
     }
   }
 }

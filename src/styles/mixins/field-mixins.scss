@@ -1,0 +1,38 @@
+@use '../constants' as *;
+@use './common' as *;
+
+@mixin field-control-base {
+  width: 100%;
+  border: 1px solid $field-border;
+  border-radius: $field-radius;
+  background-color: $field-bg;
+  color: $field-text;
+  font: inherit;
+  font-weight: $font-weight-light;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+@mixin field-size-base {
+  height: $field-mobile-height;
+  padding: $space-8 $space-12;
+
+  @include desktop {
+    height: $field-desktop-height;
+    font-size: $text-size-body;
+  }
+}
+
+@mixin field-label {
+  position: absolute;
+  top: 50%;
+  left: $space-12;
+  transform: translateY(-50%);
+  color: $field-text;
+  pointer-events: none;
+}
+
+@mixin field-error-text {
+  font-size: 12px;
+  color: $field-error;
+}

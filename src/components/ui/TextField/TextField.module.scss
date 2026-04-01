@@ -1,0 +1,53 @@
+.fieldWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field {
+  position: relative;
+  width: 100%;
+}
+
+.control {
+  @include field-control-base;
+  @include field-size-base;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    border-color: $field-border-focus;
+  }
+
+  &:focus + .label {
+    opacity: 0.5;
+  }
+
+  &[data-has-value='true'] + .label,
+  &[data-has-value='true']:focus + .label {
+    opacity: 0;
+  }
+}
+
+.label {
+  @include field-label;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.required {
+  color: $field-border-focus;
+  margin-left: 2px;
+  font-weight: $font-weight-regular;
+}
+
+.error .control {
+  border-color: $field-error;
+}
+
+.errorText {
+  @include field-error-text;
+}
