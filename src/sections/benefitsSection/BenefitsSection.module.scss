@@ -1,10 +1,19 @@
 $bg-snake-url: url('@assets/img/snake/snake-moving.png');
-$bg-snake-width: 390px;
+$bg-snake-size: 390px;
+$snake-top-desktop: 35%;
+$benefits-list-top-desktop: 18vh;
+$benefits-list-top-mobile: 12vh;
+$max-width-first-column-on-desktop: 746px;
+$max-width-description-in-first-column-on-desktop: 564px;
 
 .section {
   font-family: $font-family-display;
   color: $text-color-primary;
   padding-block: $space-32;
+
+  @include desktop {
+    padding-top: $space-60;
+  }
 }
 
 .bg {
@@ -15,16 +24,11 @@ $bg-snake-width: 390px;
   background-repeat: no-repeat;
 
   @include desktop {
-    padding-top: 60px;
-    background-image: $bg-snake-url, $gradient-bg-default;
+    background: $gradient-bg-default;
 
-    background-size:
-      $bg-snake-width auto,
-      auto;
+    background-size: auto;
 
-    background-position:
-      40% 60%,
-      center;
+    background-position: center;
 
     background-repeat: no-repeat;
   }
@@ -40,10 +44,10 @@ $bg-snake-width: 390px;
 }
 
 .firstColumn {
-  margin-bottom: 10vh;
+  margin-bottom: $benefits-list-top-mobile;
   @include desktop {
     margin: 0;
-    max-width: 746px;
+    max-width: $max-width-first-column-on-desktop;
   }
 }
 
@@ -62,7 +66,7 @@ $bg-snake-width: 390px;
   line-height: 1.25;
   @include desktop {
     font-size: $text-size-body-lg;
-    max-width: 564px;
+    max-width: $max-width-description-in-first-column-on-desktop;
   }
 }
 
@@ -71,10 +75,35 @@ $bg-snake-width: 390px;
 }
 
 .benefitsList {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: $space-20;
-  padding-top: 18vh;
+
+  @include desktop {
+    padding-top: $benefits-list-top-desktop;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+
+      width: $bg-snake-size;
+      height: $bg-snake-size;
+
+      background-image: $bg-snake-url;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left;
+
+      top: $snake-top-desktop;
+      left: 0;
+      transform: translateX(-100%);
+
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
 }
 
 .benefitsItem {
