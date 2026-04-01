@@ -26,10 +26,7 @@
     opacity: 0.5;
   }
 
-  &[data-has-value='true'] + .label {
-    opacity: 0;
-  }
-
+  &[data-has-value='true'] + .label,
   &[data-has-value='true']:focus + .label {
     opacity: 0;
   }

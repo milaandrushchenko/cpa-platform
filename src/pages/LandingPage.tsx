@@ -1,6 +1,7 @@
 import { Button } from '@components/ui/Button';
 import { useScrollToHash } from '@hooks/useScrollToHash';
 import { PageLayout } from '@layouts/PageLayout';
+import HeroSection from '@sections/HeroSection';
 
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -19,11 +20,10 @@ export default function LandingPage() {
 
   return (
     <main>
-      <PageLayout id="hero" fullHeight>
-        {t('hero.sectionName')}
-        <Button onClick={openModal}>Open modal</Button>
-        <ContactModal isOpen={isModalOpen} onClose={closeModal} />
-      </PageLayout>
+      <HeroSection />
+      <Button onClick={openModal}>Open modal</Button>
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
+
       <PageLayout id="tasks" fullHeight>
         {t('tasks.sectionName')}
         <Button shape="pill">{t('tasks.sectionName')}</Button>

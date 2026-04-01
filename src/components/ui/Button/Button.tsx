@@ -7,7 +7,7 @@ import styles from './Button.module.scss';
 
 type ButtonProps = PropsWithChildren<
   {
-    shape?: 'default' | 'pill' | 'primary';
+    shape?: 'featured' | 'pill' | 'primary';
     icon?: ReactNode;
   } & ButtonHTMLAttributes<HTMLButtonElement>
 >;
@@ -15,7 +15,7 @@ type ButtonProps = PropsWithChildren<
 export const Button = ({
   children,
   icon,
-  shape = 'default',
+  shape = 'featured',
   className,
   ...props
 }: ButtonProps) => {

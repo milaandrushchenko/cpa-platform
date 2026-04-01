@@ -57,8 +57,23 @@ p {
   line-height: inherit;
 }
 
+ul {
+  list-style: none;
+  margin: unset;
+  padding: unset;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+// Utility classes
+.desktopOnly {
+  display: none;
+
+  @media (min-width: $breakpoint-desktop) {
+    display: block;
+  }
 }
