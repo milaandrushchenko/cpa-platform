@@ -1,6 +1,12 @@
 $bg-snake-url: url('@assets/img/snake/snake-moving.png');
 $bg-snake-width: 390px;
 
+.section {
+  font-family: $font-family-display;
+  color: $text-color-primary;
+  padding-block: $space-32;
+}
+
 .bg {
   width: 100%;
   height: 100%;
@@ -17,7 +23,7 @@ $bg-snake-width: 390px;
       auto;
 
     background-position:
-      50% 60%,
+      40% 60%,
       center;
 
     background-repeat: no-repeat;
@@ -25,5 +31,57 @@ $bg-snake-width: 390px;
 }
 
 .sectionLabel {
-  @include section-label;
+  display: none;
+  @include desktop {
+    display: block;
+    @include section-label;
+    margin-bottom: $space-60;
+  }
+}
+
+.firstColumn {
+  margin-bottom: 10vh;
+  @include desktop {
+    margin: 0;
+    max-width: 746px;
+  }
+}
+
+.title {
+  font-size: $text-size-title-lg;
+  font-weight: $font-weight-bold;
+  line-height: 0.9;
+  padding-bottom: $space-16;
+  @include desktop {
+    font-size: $text-size-section-title-on-desktop;
+  }
+}
+
+.description {
+  font-weight: $font-weight-medium;
+  line-height: 1.25;
+  @include desktop {
+    font-size: $text-size-body-lg;
+    max-width: 564px;
+  }
+}
+
+.accent {
+  color: $text-color-accent;
+}
+
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-20;
+  padding-top: 18vh;
+}
+
+.benefitsItem {
+  font-weight: $font-weight-bold;
+  font-size: $text-size-body-lg;
+  line-height: 1.2;
+  padding: $space-16;
+  background: $bg-card-highlight;
+  border-radius: 8px;
 }
