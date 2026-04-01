@@ -39,3 +39,13 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin section-label($align: right) {
+  font-weight: $font-weight-bold;
+  font-size: $text-size-section-label-on-desktop;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: $color-yellow-300;
+  font-family: $font-family-display;
+  text-align: $align;
+}

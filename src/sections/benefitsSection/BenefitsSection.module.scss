@@ -9,6 +9,7 @@ $bg-snake-width: 390px;
   background-repeat: no-repeat;
 
   @include desktop {
+    padding-top: 60px;
     background-image: $bg-snake-url, $gradient-bg-default;
 
     background-size:
@@ -21,4 +22,8 @@ $bg-snake-width: 390px;
 
     background-repeat: no-repeat;
   }
+}
+
+.sectionLabel {
+  @include section-label;
 }
