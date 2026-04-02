@@ -6,6 +6,8 @@ import { TextField } from '@/components/ui/TextField/TextField';
 import { contactMethods } from '@/config/contactMethods';
 import { useSubmitContactForm } from '@/hooks/useSubmitContactForm';
 import { type ContactFormErrors, type ContactMethod } from '@/types/api';
+import { capitalize } from '@/utils/capitalize';
+import { mapZodErrors } from '@/utils/mapZodErrors';
 
 import { contactFormSchema } from '../../config/schemas/contactForm.schema';
 import { Button } from '../ui/Button';
@@ -47,15 +49,7 @@ export const ApplicationForm = ({
 
     if (!validationResult.success) {
       const fieldErrors = validationResult.error.flatten().fieldErrors;
-      const newErrors: ContactFormErrors = {};
-
-      (Object.keys(fieldErrors) as Array<keyof ContactFormErrors>).forEach(
-        (key) => {
-          newErrors[key] = fieldErrors[key]?.[0];
-        },
-      );
-      setErrors(newErrors);
-
+      setErrors(mapZodErrors<ContactFormErrors>(fieldErrors));
       return;
     }
 
@@ -65,6 +59,16 @@ export const ApplicationForm = ({
       setSuccessMessage(result.data.message);
       setFormData(INITIAL_VALUES);
     }
+  };
+
+  const handleChange = (
+    field: keyof ApplicationFormState,
+    value: ApplicationFormState[keyof ApplicationFormState],
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
   };
 
   return (
@@ -78,59 +82,55 @@ export const ApplicationForm = ({
         />
       </p>
 
-      {serverError && <p className={styles.submitError}>{serverError}</p>}
-
-      <TextField
-        label={t('form.collect.placeholders.name')}
-        name="name"
-        value={formData.name}
-        onChange={(e) =>
-          setFormData((prev) => ({ ...prev, name: e.target.value }))
-        }
-        error={errors.name}
-      />
-
-      <div className={styles.row}>
-        <SelectField
-          className={styles.contactMethod}
-          label={t('form.collect.placeholders.contactMethod')}
-          name="method"
-          value={formData.method}
-          onChange={(value) =>
-            setFormData((prev) => ({
-              ...prev,
-              method: value as ApplicationFormState['method'],
-            }))
-          }
-          isRequiredMark
-          options={contactMethods.map((method) => ({
-            label: method.charAt(0).toUpperCase() + method.slice(1),
-            value: method,
-          }))}
-          error={errors.method}
-        />
-
-        <TextField
-          className={styles.contactValue}
-          label={t('form.collect.placeholders.contact')}
-          name="contact"
-          value={formData.contact}
-          onChange={(e) =>
-            setFormData((prev) => ({ ...prev, contact: e.target.value }))
-          }
-          isRequiredMark
-          error={errors.contact}
-        />
+      <div className={styles.submitErrorWrap}>
+        {serverError && <p className={styles.submitError}>{serverError}</p>}
       </div>
+      <div className={styles.formFields}>
+        <TextField
+          label={t('form.collect.placeholders.name')}
+          name="name"
+          value={formData.name}
+          onChange={(e) => handleChange('name', e.target.value)}
+          error={errors.name}
+        />
 
-      <Button
-        shape="primary"
-        type="submit"
-        className={styles.submitBtn}
-        disabled={isLoading}
-      >
-        {isLoading ? t('globalCtas.submitting') : t('globalCtas.submit')}
-      </Button>
+        <div className={styles.row}>
+          <SelectField
+            className={styles.contactMethod}
+            label={t('form.collect.placeholders.contactMethod')}
+            name="method"
+            value={formData.method}
+            onChange={(value) =>
+              handleChange('method', value as ApplicationFormState['method'])
+            }
+            isRequiredMark
+            options={contactMethods.map((method) => ({
+              label: capitalize(method),
+              value: method,
+            }))}
+            error={errors.method}
+          />
+
+          <TextField
+            className={styles.contactValue}
+            label={t('form.collect.placeholders.contact')}
+            name="contact"
+            value={formData.contact}
+            onChange={(e) => handleChange('contact', e.target.value)}
+            isRequiredMark
+            error={errors.contact}
+          />
+        </div>
+
+        <Button
+          shape="primary"
+          type="submit"
+          className={styles.submitBtn}
+          disabled={isLoading}
+        >
+          {isLoading ? t('globalCtas.submitting') : t('globalCtas.submit')}
+        </Button>
+      </div>
     </form>
   );
 };

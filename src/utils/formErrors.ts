@@ -1,5 +1,7 @@
 import { serverValidationIssuesSchema } from '@/config/schemas/serverValidation.schema';
 
+import { capitalize } from './capitalize';
+
 export const getReadableServerError = (message: string): string => {
   try {
     const parsed: unknown = JSON.parse(message);
@@ -15,7 +17,7 @@ export const getReadableServerError = (message: string): string => {
         const field = issue.path[0];
 
         if (typeof field === 'string') {
-          return `${field.charAt(0).toUpperCase() + field.slice(1)}: ${issue.message}`;
+          return `${capitalize(field)}: ${issue.message}`;
         }
 
         return issue.message;
