@@ -6,6 +6,7 @@ import { TextField } from '@/components/ui/TextField/TextField';
 import { contactMethods } from '@/config/contactMethods';
 import { useSubmitContactForm } from '@/hooks/useSubmitContactForm';
 import { type ContactFormErrors, type ContactMethod } from '@/types/api';
+import { mapZodErrors } from '@/utils/mapZodErrors';
 
 import { contactFormSchema } from '../../config/schemas/contactForm.schema';
 import { Button } from '../ui/Button';
@@ -47,15 +48,7 @@ export const ApplicationForm = ({
 
     if (!validationResult.success) {
       const fieldErrors = validationResult.error.flatten().fieldErrors;
-      const newErrors: ContactFormErrors = {};
-
-      (Object.keys(fieldErrors) as Array<keyof ContactFormErrors>).forEach(
-        (key) => {
-          newErrors[key] = fieldErrors[key]?.[0];
-        },
-      );
-      setErrors(newErrors);
-
+      setErrors(mapZodErrors<ContactFormErrors>(fieldErrors));
       return;
     }
 
