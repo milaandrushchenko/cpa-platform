@@ -6,6 +6,7 @@ import { TextField } from '@/components/ui/TextField/TextField';
 import { contactMethods } from '@/config/contactMethods';
 import { useSubmitContactForm } from '@/hooks/useSubmitContactForm';
 import { type ContactFormErrors, type ContactMethod } from '@/types/api';
+import { capitalize } from '@/utils/capitalize';
 import { mapZodErrors } from '@/utils/mapZodErrors';
 
 import { contactFormSchema } from '../../config/schemas/contactForm.schema';
@@ -60,6 +61,16 @@ export const ApplicationForm = ({
     }
   };
 
+  const handleChange = (
+    field: keyof ApplicationFormState,
+    value: ApplicationFormState[keyof ApplicationFormState],
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <p className={styles.note}>
@@ -79,9 +90,7 @@ export const ApplicationForm = ({
           label={t('form.collect.placeholders.name')}
           name="name"
           value={formData.name}
-          onChange={(e) =>
-            setFormData((prev) => ({ ...prev, name: e.target.value }))
-          }
+          onChange={(e) => handleChange('name', e.target.value)}
           error={errors.name}
         />
 
@@ -92,14 +101,11 @@ export const ApplicationForm = ({
             name="method"
             value={formData.method}
             onChange={(value) =>
-              setFormData((prev) => ({
-                ...prev,
-                method: value as ApplicationFormState['method'],
-              }))
+              handleChange('method', value as ApplicationFormState['method'])
             }
             isRequiredMark
             options={contactMethods.map((method) => ({
-              label: method.charAt(0).toUpperCase() + method.slice(1),
+              label: capitalize(method),
               value: method,
             }))}
             error={errors.method}
@@ -110,9 +116,7 @@ export const ApplicationForm = ({
             label={t('form.collect.placeholders.contact')}
             name="contact"
             value={formData.contact}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, contact: e.target.value }))
-            }
+            onChange={(e) => handleChange('contact', e.target.value)}
             isRequiredMark
             error={errors.contact}
           />
