@@ -1,9 +1,15 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: $space-12;
   flex: 1;
   overflow: visible;
+  gap: $space-4;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: $space-12;
 
   @include desktop {
     gap: $space-8;
@@ -12,7 +18,6 @@
 
 .note {
   font-weight: $font-weight-light;
-  padding-bottom: $space-8;
   color: $field-text;
 
   .requiredMark {
@@ -41,4 +46,13 @@
 .submitBtn {
   margin-top: auto;
   align-self: center;
+}
+
+.submitErrorWrap {
+  min-height: $space-20;
+}
+
+.submitError {
+  color: $field-error;
+  font-size: $text-size-caption;
 }

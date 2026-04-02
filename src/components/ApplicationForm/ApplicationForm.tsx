@@ -78,59 +78,62 @@ export const ApplicationForm = ({
         />
       </p>
 
-      {serverError && <p className={styles.submitError}>{serverError}</p>}
-
-      <TextField
-        label={t('form.collect.placeholders.name')}
-        name="name"
-        value={formData.name}
-        onChange={(e) =>
-          setFormData((prev) => ({ ...prev, name: e.target.value }))
-        }
-        error={errors.name}
-      />
-
-      <div className={styles.row}>
-        <SelectField
-          className={styles.contactMethod}
-          label={t('form.collect.placeholders.contactMethod')}
-          name="method"
-          value={formData.method}
-          onChange={(value) =>
-            setFormData((prev) => ({
-              ...prev,
-              method: value as ApplicationFormState['method'],
-            }))
-          }
-          isRequiredMark
-          options={contactMethods.map((method) => ({
-            label: method.charAt(0).toUpperCase() + method.slice(1),
-            value: method,
-          }))}
-          error={errors.method}
-        />
-
-        <TextField
-          className={styles.contactValue}
-          label={t('form.collect.placeholders.contact')}
-          name="contact"
-          value={formData.contact}
-          onChange={(e) =>
-            setFormData((prev) => ({ ...prev, contact: e.target.value }))
-          }
-          isRequiredMark
-          error={errors.contact}
-        />
+      <div className={styles.submitErrorWrap}>
+        {serverError && <p className={styles.submitError}>{serverError}</p>}
       </div>
+      <div className={styles.formFields}>
+        <TextField
+          label={t('form.collect.placeholders.name')}
+          name="name"
+          value={formData.name}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, name: e.target.value }))
+          }
+          error={errors.name}
+        />
 
-      <Button
-        shape="primary"
-        type="submit"
-        className={styles.submitBtn}
-        disabled={isLoading}
-      >
-        {isLoading ? t('globalCtas.submitting') : t('globalCtas.submit')}
-      </Button>
+        <div className={styles.row}>
+          <SelectField
+            className={styles.contactMethod}
+            label={t('form.collect.placeholders.contactMethod')}
+            name="method"
+            value={formData.method}
+            onChange={(value) =>
+              setFormData((prev) => ({
+                ...prev,
+                method: value as ApplicationFormState['method'],
+              }))
+            }
+            isRequiredMark
+            options={contactMethods.map((method) => ({
+              label: method.charAt(0).toUpperCase() + method.slice(1),
+              value: method,
+            }))}
+            error={errors.method}
+          />
+
+          <TextField
+            className={styles.contactValue}
+            label={t('form.collect.placeholders.contact')}
+            name="contact"
+            value={formData.contact}
+            onChange={(e) =>
+              setFormData((prev) => ({ ...prev, contact: e.target.value }))
+            }
+            isRequiredMark
+            error={errors.contact}
+          />
+        </div>
+
+        <Button
+          shape="primary"
+          type="submit"
+          className={styles.submitBtn}
+          disabled={isLoading}
+        >
+          {isLoading ? t('globalCtas.submitting') : t('globalCtas.submit')}
+        </Button>
+      </div>
     </form>
   );
 };
