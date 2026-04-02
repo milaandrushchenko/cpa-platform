@@ -1,28 +1,25 @@
 import axios from 'axios';
 
+import { extractServerMessage } from '@/utils/extractServerMessage';
+
 export async function request<T>(promise: Promise<{ data: T }>): Promise<T> {
   try {
     const { data } = await promise;
     return data;
   } catch (error) {
-    if (axios.isAxiosError(error)) {
-      const data: unknown = error.response?.data;
+    const isAxios = axios.isAxiosError(error);
 
-      if (
-        typeof data === 'object' &&
-        data !== null &&
-        'message' in data &&
-        typeof (data as { message: unknown }).message === 'string'
-      ) {
-        const serverMessage = (data as { message: string }).message;
+    if (isAxios) {
+      const data: unknown = error.response?.data;
+      const serverMessage = extractServerMessage(data);
+
+      if (serverMessage) {
         throw new Error(serverMessage);
       }
     }
 
     throw new Error(
-      axios.isAxiosError(error)
-        ? error.message || 'Request failed'
-        : 'Request failed',
+      isAxios ? error.message || 'Request failed' : 'Request failed',
     );
   }
 }
