@@ -1,15 +1,24 @@
 $bg-snake-url: url('@assets/img/snake/snake-rising.png');
 $bg-snake-width: 596px;
+$section-top-on-desktop: 154px;
+$section-label-top-on-desktop: -92px;
+$step-list-border-radius: 12px;
+$step-list-height-on-mobile: 470px;
+$step-list-height-on-desktop: 614px;
+$arrow-width-on-mobile: 32px;
+$arrow-height-on-mobile: 16px;
+$arrow-width-on-desktop: 52px;
+$arrow-height-on-desktop: 22px;
 
 .section {
   position: relative;
-
+  width: 100%;
   font-family: $font-family-display;
   color: $text-color-primary;
   padding-block: $space-40 $space-20;
 
   @include desktop {
-    padding-top: 154px;
+    padding-top: $section-top-on-desktop;
   }
 }
 
@@ -23,8 +32,8 @@ $bg-snake-width: 596px;
 
   @include desktop {
     position: absolute;
-    top: -92px;
-    right: $space-40;
+    top: $section-label-top-on-desktop;
+    right: 0;
 
     display: block;
     @include section-label;
@@ -56,11 +65,49 @@ $bg-snake-width: 596px;
 
 .buttonList {
   @include flex-center;
+  display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: $space-12;
 
   @include desktop {
     align-items: start;
+    justify-content: start;
     gap: $space-30;
+  }
+}
+
+.stepList {
+  border-radius: $step-list-border-radius;
+  padding-inline: $space-20;
+  background: $gradient-block-accent;
+  font-weight: $font-weight-bold;
+  font-size: $text-size-body;
+  line-height: 1.25;
+  text-align: center;
+  height: $step-list-height-on-mobile;
+  width: 100%;
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-12;
+  margin-bottom: $space-30;
+
+  @include desktop {
+    font-size: $text-size-body-lg;
+    height: $step-list-height-on-desktop;
+    margin: 0;
+    padding-inline: $space-98;
+  }
+}
+
+.arrow {
+  width: $arrow-width-on-mobile;
+  height: $arrow-height-on-mobile;
+  margin-block: $space-8;
+  display: block;
+
+  @include desktop {
+    width: $arrow-width-on-desktop;
+    height: $arrow-height-on-desktop;
   }
 }
