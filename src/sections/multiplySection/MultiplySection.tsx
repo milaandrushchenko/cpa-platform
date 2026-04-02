@@ -2,9 +2,11 @@ import clsx from 'clsx';
 
 import { useTranslation } from 'react-i18next';
 
+import { Button } from '@/components/ui/Button';
 import { PageLayout } from '@/layouts/PageLayout';
 import SectionGrid from '@/layouts/SectionGrid/SectionGrid';
 import type { MultiplyResponse } from '@/types/api';
+import { formatTitle } from '@/utils/format';
 
 import styles from './MultiplySection.module.scss';
 
@@ -21,13 +23,13 @@ export default function MultiplySection({ data }: MultiplySectionProps) {
       fullHeight
       className={clsx(styles.bg, styles.section)}
     >
-      <h2 className={styles.sectionLabel}> {t('multiply.sectionName')}</h2>
       <SectionGrid desktop={{ columns: 2, gap: '18px', ratios: [1, 1.3] }}>
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
-          aspernatur mollitia fuga, aliquid cumque saepe consequuntur quam
-          similique velit perferendis? Accusantium architecto commodi reiciendis
-          cumque deserunt vero quod enim illum?
+        <div className={styles.buttonList}>
+          {data.map((multiply) => (
+            <Button key={multiply.title} shape="pill">
+              {formatTitle(multiply.title)}
+            </Button>
+          ))}
         </div>
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Non saepe
@@ -36,6 +38,7 @@ export default function MultiplySection({ data }: MultiplySectionProps) {
           provident, dignissimos nisi.
         </div>
       </SectionGrid>
+      <h2 className={styles.sectionLabel}> {t('multiply.sectionName')}</h2>
     </PageLayout>
   );
 }

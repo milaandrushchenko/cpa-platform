@@ -2,21 +2,33 @@ $bg-snake-url: url('@assets/img/snake/snake-rising.png');
 $bg-snake-width: 596px;
 
 .section {
+  position: relative;
+
   font-family: $font-family-display;
   color: $text-color-primary;
   padding-block: $space-40 $space-20;
 
   @include desktop {
-    padding-top: $space-60;
+    padding-top: 154px;
   }
 }
 
 .sectionLabel {
-  margin-bottom: 0px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: $text-color-accent;
+  text-align: center;
+  font-size: $text-size-body-lg;
+  font-weight: $font-weight-bold;
+
   @include desktop {
+    position: absolute;
+    top: -92px;
+    right: $space-40;
+
     display: block;
     @include section-label;
-    margin-bottom: $space-60;
+    margin-bottom: 0;
   }
 }
 
@@ -39,5 +51,16 @@ $bg-snake-width: 596px;
     background-position:
       left bottom,
       center;
+  }
+}
+
+.buttonList {
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-12;
+
+  @include desktop {
+    align-items: start;
+    gap: $space-30;
   }
 }
