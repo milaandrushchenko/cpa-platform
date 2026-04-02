@@ -10,6 +10,7 @@ $max-width-description-in-first-column-on-desktop: 564px;
   font-family: $font-family-display;
   color: $text-color-primary;
   padding-block: $space-32;
+  overflow: hidden;
 
   @include desktop {
     padding-top: $space-60;
