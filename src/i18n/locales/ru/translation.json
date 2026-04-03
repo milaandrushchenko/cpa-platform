@@ -1,8 +1,69 @@
 {
+  "navigation": {
+    "team": "Команда",
+    "benefits": "Преимущества",
+    "collectForm": "Присоединиться",
+    "locales": {
+      "en": "Eng",
+      "ru": "Рус"
+    }
+  },
   "hero": {
-    "sectionName": "Главная"
+    "sectionName": "Главная",
+    "title": "Практика приносит прибыль",
+    "description": "Мы предоставляем эффективные решения, протестированные и отточенные на собственных продуктах и рекламных бюджетах"
+  },
+  "tasks": {
+    "sectionName": "Мульти-задачи"
+  },
+  "benefits": {
+    "sectionName": "Мульти-преимущества",
+    "ticker": "Мечтай больше — зарабатывай больше!"
+  },
+  "multiply": {
+    "sectionName": "Умножай с нами"
+  },
+  "footer": {
+    "links": {
+      "social": [
+        {
+          "name": "Instagram",
+          "url": "https://www.instagram.com/multicpa/"
+        },
+        {
+          "name": "Telegram",
+          "url": "https://t.me/multicpa"
+        },
+        {
+          "name": "LinkedIn",
+          "url": "https://www.linkedin.com/company/multicpa/"
+        }
+      ]
+    }
+  },
+  "form": {
+    "collect": {
+      "rule": "Поля, отмеченные звёздочкой (<mark>*</mark>), обязательны",
+      "placeholders": {
+        "name": "Ваше имя",
+        "contactMethod": "Способ связи",
+        "contact": "Ваш контакт"
+      }
+    },
+    "submit": {
+      "title": "Мы получили вашу заявку!",
+      "description": "Мы обработаем ваш запрос\nи свяжемся с вами"
+    }
+  },
+  "notFound": {
+    "message": "404"
   },
   "globalCtas": {
+    "submit": "Отправить",
+    "submitting": "Отправка...",
+    "back": "Назад",
+    "scrollToTop": "Наверх",
+    "done": "Готово",
     "close": "Закрыть"
   }
 }

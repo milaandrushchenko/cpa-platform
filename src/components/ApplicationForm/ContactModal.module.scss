@@ -1,0 +1,6 @@
+.modal {
+  min-height: 430px;
+  @include desktop {
+    min-height: 380px;
+  }
+}

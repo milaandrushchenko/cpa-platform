@@ -42,10 +42,10 @@
   },
   "form": {
     "collect": {
-      "rule": "Fields with an asterisk (*) are mandatory",
+      "rule": "Fields with an asterisk (<mark>*</mark>) are mandatory",
       "placeholders": {
         "name": "Your name",
-        "contactMethod": "Contact method *",
+        "contactMethod": "Contact method",
         "contact": "Your contact"
       }
     },
@@ -57,6 +57,7 @@
   "notFound": { "message": "404" },
   "globalCtas": {
     "submit": "Submit",
+    "submitting": "Submitting",
     "back": "Take me back",
     "scrollToTop": "Scroll to top",
     "done": "Done",

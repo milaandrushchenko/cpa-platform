@@ -1,3 +1,9 @@
+import { z } from 'zod';
+
+import type { contactMethods } from '@/config/contactMethods';
+import { contactFormSchema } from '@/config/schemas/contactForm.schema';
+import type { serverValidationIssueSchema } from '@/config/schemas/serverValidation.schema';
+
 export interface BenefitsResponse {
   title: string;
   description: string;
@@ -27,15 +33,22 @@ export interface TasksResponse {
   tiles: TaskTile[];
 }
 
-export type ContactMethod = 'telegram' | 'whatsapp' | 'email';
+export type ContactMethod = (typeof contactMethods)[number];
 
-export interface SubmitFormPayload {
+export interface ContactFormPayload {
   name?: string;
   method: ContactMethod;
   contact: string;
 }
 
-export interface SubmitFormResponse {
-  message: string;
-  data: SubmitFormPayload;
-}
+export type ContactFormErrors = Partial<
+  Record<keyof ContactFormPayload, string>
+>;
+
+export const contactFormResponseSchema = z.object({
+  message: z.string(),
+  data: contactFormSchema.optional(),
+});
+
+export type ContactFormResponse = z.infer<typeof contactFormResponseSchema>;
+export type ServerValidationIssue = z.infer<typeof serverValidationIssueSchema>;

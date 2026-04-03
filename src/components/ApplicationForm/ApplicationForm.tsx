@@ -1,58 +1,136 @@
 import { useState } from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { SelectField } from '@/components/ui/SelectField/SelectField';
 import { TextField } from '@/components/ui/TextField/TextField';
+import { contactMethods } from '@/config/contactMethods';
+import { useSubmitContactForm } from '@/hooks/useSubmitContactForm';
+import { type ContactFormErrors, type ContactMethod } from '@/types/api';
+import { capitalize } from '@/utils/capitalize';
+import { mapZodErrors } from '@/utils/mapZodErrors';
 
+import { contactFormSchema } from '../../config/schemas/contactForm.schema';
 import { Button } from '../ui/Button';
 import styles from './ApplicationForm.module.scss';
 
-export const ApplicationForm = () => {
-  const [name, setName] = useState('');
-  const [contactMethod, setContactMethod] = useState('');
-  const [contact, setContact] = useState('');
+type ApplicationFormState = {
+  name?: string;
+  method: ContactMethod | '';
+  contact: string;
+};
+
+const INITIAL_VALUES: ApplicationFormState = {
+  method: '',
+  contact: '',
+};
+
+type ApplicationFormProps = {
+  setSuccessMessage: (val: string) => void;
+};
+
+export const ApplicationForm = ({
+  setSuccessMessage,
+}: ApplicationFormProps) => {
+  const [formData, setFormData] =
+    useState<ApplicationFormState>(INITIAL_VALUES);
+  const [errors, setErrors] = useState<ContactFormErrors>({});
+
+  const { t } = useTranslation();
+
+  const { submit, isLoading, error: serverError } = useSubmitContactForm();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setErrors({});
+    setSuccessMessage('');
+
+    const validationResult = contactFormSchema.safeParse(formData);
+
+    if (!validationResult.success) {
+      const fieldErrors = validationResult.error.flatten().fieldErrors;
+      setErrors(mapZodErrors<ContactFormErrors>(fieldErrors));
+      return;
+    }
+
+    const result = await submit(validationResult.data);
+
+    if (result.success) {
+      setSuccessMessage(result.data.message);
+      setFormData(INITIAL_VALUES);
+    }
+  };
+
+  const handleChange = (
+    field: keyof ApplicationFormState,
+    value: ApplicationFormState[keyof ApplicationFormState],
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit} noValidate>
       <p className={styles.note}>
-        Fields with an asterisk (<span className={styles.requiredMark}>*</span>)
-        are mandatory
+        <Trans
+          i18nKey="form.collect.rule"
+          components={{
+            mark: <span className={styles.requiredMark} />,
+          }}
+        />
       </p>
-      <TextField
-        label="Your Name"
-        name="name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
 
-      <div className={styles.row}>
-        <SelectField
-          className={styles.contactMethod}
-          label="Contact Method"
-          name="contactMethod"
-          value={contactMethod}
-          onChange={setContactMethod}
-          isRequiredMark
-          options={[
-            { label: 'Telegram', value: 'telegram' },
-            { label: 'Email', value: 'email' },
-            { label: 'Phone', value: 'phone' },
-          ]}
-        />
-
-        <TextField
-          className={styles.contactValue}
-          label="Your Contact"
-          name="contact"
-          value={contact}
-          onChange={(e) => setContact(e.target.value)}
-          isRequiredMark
-          required
-        />
+      <div className={styles.submitErrorWrap}>
+        {serverError && <p className={styles.submitError}>{serverError}</p>}
       </div>
+      <div className={styles.formFields}>
+        <TextField
+          label={t('form.collect.placeholders.name')}
+          name="name"
+          value={formData.name}
+          onChange={(e) => handleChange('name', e.target.value)}
+          error={errors.name}
+        />
 
-      <Button shape="primary" type="submit" className={styles.submitBtn}>
-        Submit
-      </Button>
+        <div className={styles.row}>
+          <SelectField
+            className={styles.contactMethod}
+            label={t('form.collect.placeholders.contactMethod')}
+            name="method"
+            value={formData.method}
+            onChange={(value) =>
+              handleChange('method', value as ApplicationFormState['method'])
+            }
+            isRequiredMark
+            options={contactMethods.map((method) => ({
+              label: capitalize(method),
+              value: method,
+            }))}
+            error={errors.method}
+          />
+
+          <TextField
+            className={styles.contactValue}
+            label={t('form.collect.placeholders.contact')}
+            name="contact"
+            value={formData.contact}
+            onChange={(e) => handleChange('contact', e.target.value)}
+            isRequiredMark
+            error={errors.contact}
+          />
+        </div>
+
+        <Button
+          shape="primary"
+          type="submit"
+          className={styles.submitBtn}
+          disabled={isLoading}
+        >
+          {isLoading ? t('globalCtas.submitting') : t('globalCtas.submit')}
+        </Button>
+      </div>
     </form>
   );
 };

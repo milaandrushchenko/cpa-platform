@@ -6,8 +6,7 @@ import HeroSection from '@sections/HeroSection';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ApplicationForm } from '@/components/ApplicationForm/ApplicationForm';
-import { Modal } from '@/components/ui/Modal';
+import ContactModal from '@/components/ApplicationForm/ContactModal';
 
 export default function LandingPage() {
   const { t } = useTranslation();
@@ -23,9 +22,8 @@ export default function LandingPage() {
     <main>
       <HeroSection />
       <Button onClick={openModal}>Open modal</Button>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <ApplicationForm />
-      </Modal>
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
+
       <PageLayout id="tasks" fullHeight>
         {t('tasks.sectionName')}
         <Button shape="pill">{t('tasks.sectionName')}</Button>
