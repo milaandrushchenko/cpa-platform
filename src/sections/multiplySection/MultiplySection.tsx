@@ -3,22 +3,35 @@ import clsx from 'clsx';
 import { Fragment, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import ContactModal from '@/components/ApplicationForm/ContactModal';
 import { Button } from '@/components/ui/Button';
 import { ArrowIcon } from '@/components/ui/icons';
 import { PageLayout } from '@/layouts/PageLayout';
 import SectionGrid from '@/layouts/SectionGrid/SectionGrid';
-import type { MultiplyItem, MultiplyResponse } from '@/types/api';
+import type { MultiplyResponse } from '@/types/api';
 import { formatTitle } from '@/utils/format';
 
 import styles from './MultiplySection.module.scss';
+
+// Translation keys that correspond to the API response order
+const MULTIPLY_TRANSLATION_KEYS = [
+  'for_media_buyers',
+  'for_businesses',
+  'for_partners',
+] as const;
 
 type MultiplySectionProps = {
   data: MultiplyResponse;
 };
 
 export default function MultiplySection({ data }: MultiplySectionProps) {
-  const [activeList, setActiveList] = useState<MultiplyItem>(data[0]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeList = data[activeIndex];
   const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <PageLayout
@@ -31,12 +44,12 @@ export default function MultiplySection({ data }: MultiplySectionProps) {
         mobile={{ gap: '20px' }}
       >
         <div className={styles.buttonList}>
-          {data.map((multiply) => (
+          {data.map((multiply, index) => (
             <Button
               key={multiply.title}
               shape="pill"
-              onClick={() => setActiveList(multiply)}
-              isActive={multiply.title === activeList.title}
+              onClick={() => setActiveIndex(index)}
+              isActive={index === activeIndex}
             >
               {formatTitle(multiply.title)}
             </Button>
@@ -48,13 +61,18 @@ export default function MultiplySection({ data }: MultiplySectionProps) {
               <div>{step}</div>
               <ArrowIcon direction="down" className={styles.arrow} />
               {i === arr.length - 1 && (
-                <Button>{t(`multiply.buttons.${activeList.title}`)}</Button>
+                <Button onClick={openModal}>
+                  {t(
+                    `multiply.buttons.${MULTIPLY_TRANSLATION_KEYS[activeIndex]}`,
+                  )}
+                </Button>
               )}
             </Fragment>
           ))}
         </div>
       </SectionGrid>
       <h2 className={styles.sectionLabel}> {t('multiply.sectionName')}</h2>
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </PageLayout>
   );
 }
