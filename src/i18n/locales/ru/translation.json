@@ -21,7 +21,12 @@
     "ticker": "Мечтай больше — зарабатывай больше!"
   },
   "multiply": {
-    "sectionName": "Умножай с нами"
+    "sectionName": "Умножай с нами",
+    "buttons": {
+      "for_media_buyers": "Присоединиться к команде",
+      "for_businesses": "Запустить сейчас",
+      "for_partners": "Стать партнёром"
+    }
   },
   "footer": {
     "links": {

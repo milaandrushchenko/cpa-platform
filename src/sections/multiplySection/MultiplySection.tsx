@@ -47,7 +47,9 @@ export default function MultiplySection({ data }: MultiplySectionProps) {
             <Fragment key={step}>
               <div>{step}</div>
               <ArrowIcon direction="down" className={styles.arrow} />
-              {i === arr.length - 1 && <Button>Launch</Button>}
+              {i === arr.length - 1 && (
+                <Button>{t(`multiply.buttons.${activeList.title}`)}</Button>
+              )}
             </Fragment>
           ))}
         </div>
