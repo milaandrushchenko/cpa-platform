@@ -19,7 +19,8 @@
   },
   "benefits": {
     "sectionName": "Multi-benefits",
-    "ticker": "Dream big earn bigger!"
+    "ticker": "Dream big earn bigger!",
+    "accent": "guaranteed"
   },
   "multiply": {
     "sectionName": "Multiply with us"

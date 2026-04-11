@@ -1,10 +1,10 @@
-$bg-snake-url: url('@assets/img/snake/snake-moving.png');
-$bg-snake-size: 390px;
-$snake-top-desktop: 35%;
+$bg-img-url: url('@assets/img/snake/snake-moving.png');
+$bg-img-size: 390px;
+$img-top-desktop: 35%;
 $benefits-list-top-desktop: 18vh;
 $benefits-list-top-mobile: 12vh;
 $max-width-first-column-on-desktop: 746px;
-$max-width-description-in-first-column-on-desktop: 564px;
+$max-width-description-desktop: 564px;
 
 .section {
   font-family: $font-family-display;
@@ -25,11 +25,8 @@ $max-width-description-in-first-column-on-desktop: 564px;
 
   @include desktop {
     background: $gradient-bg-default;
-
     background-size: auto;
-
     background-position: center;
-
     background-repeat: no-repeat;
   }
 }
@@ -66,7 +63,7 @@ $max-width-description-in-first-column-on-desktop: 564px;
   line-height: 1.25;
   @include desktop {
     font-size: $text-size-body-lg;
-    max-width: $max-width-description-in-first-column-on-desktop;
+    max-width: $max-width-description-desktop;
   }
 }
 
@@ -88,15 +85,15 @@ $max-width-description-in-first-column-on-desktop: 564px;
 
       position: absolute;
 
-      width: $bg-snake-size;
-      height: $bg-snake-size;
+      width: $bg-img-size;
+      height: $bg-img-size;
 
-      background-image: $bg-snake-url;
+      background-image: $bg-img-url;
       background-repeat: no-repeat;
       background-size: contain;
       background-position: left;
 
-      top: $snake-top-desktop;
+      top: $img-top-desktop;
       left: 0;
       transform: translateX(-100%);
 

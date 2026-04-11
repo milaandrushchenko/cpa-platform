@@ -12,13 +12,11 @@ type BenefitsSectionProps = {
   data: BenefitsResponse;
 };
 
-const ACCENT_TEXT = 'guaranteed';
-
 export default function BenefitsSection({ data }: BenefitsSectionProps) {
   const { t } = useTranslation();
-
-  const hasAccent = data.title.includes(ACCENT_TEXT);
-  const parts = hasAccent ? data.title.split(ACCENT_TEXT) : [];
+  const accentText = t('benefits.accent');
+  const hasAccent = data.title.includes(accentText);
+  const parts = hasAccent ? data.title.split(accentText) : [];
 
   return (
     <PageLayout
@@ -33,7 +31,7 @@ export default function BenefitsSection({ data }: BenefitsSectionProps) {
             {hasAccent ? (
               <>
                 {parts[0]}
-                <span className={styles.accent}>{ACCENT_TEXT}</span>
+                <span className={styles.accent}>{accentText}</span>
                 {parts[1]}
               </>
             ) : (
