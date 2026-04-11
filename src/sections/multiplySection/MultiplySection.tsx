@@ -44,14 +44,14 @@ export default function MultiplySection({ data }: MultiplySectionProps) {
         mobile={{ gap: '20px' }}
       >
         <div className={styles.buttonList}>
-          {data.map((multiply, index) => (
+          {data.map((item, index) => (
             <Button
-              key={multiply.title}
+              key={item.title}
               shape="pill"
               onClick={() => setActiveIndex(index)}
               isActive={index === activeIndex}
             >
-              {formatTitle(multiply.title)}
+              {formatTitle(item.title)}
             </Button>
           ))}
         </div>

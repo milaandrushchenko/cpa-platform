@@ -1,5 +1,5 @@
-$bg-snake-url: url('@assets/img/snake/snake-rising.png');
-$bg-snake-width: 596px;
+$bg-img-url: url('@assets/img/snake/snake-rising.png');
+$bg-img-width: 596px;
 $section-top-on-desktop: 154px;
 $section-label-top-on-desktop: -92px;
 $step-list-border-radius: 12px;
@@ -49,10 +49,10 @@ $arrow-height-on-desktop: 22px;
   background-repeat: no-repeat;
 
   @include desktop {
-    background-image: $bg-snake-url, $gradient-bg-default;
+    background-image: $bg-img-url, $gradient-bg-default;
 
     background-size:
-      $bg-snake-width auto,
+      $bg-img-width auto,
       auto;
 
     background-position: center;
