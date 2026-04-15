@@ -5,8 +5,10 @@ $color-purple-dark: #0c090e;
 $color-white: #ffffff;
 $color-yellow-300: #fee97d;
 $color-orange-500: #dc8400;
+$color-fuchsia-400: #a30ee9;
 $color-fuchsia-500: #9e13e0;
 $color-violet-600: #9500dc;
+$color-violet-700: #8a00cc;
 $color-purple-700: #560080;
 $color-purple-900: #220032;
 $color-plum-950: #14091a;
@@ -30,6 +32,12 @@ $text-color-on-cta: $color-black;
 // Gradients
 
 $gradient-angle: 111.06deg;
+
+$gradient-block-accent: linear-gradient(
+  137deg,
+  $color-fuchsia-400 0%,
+  $color-violet-700 100%
+);
 
 $gradient-bg-default: linear-gradient(
   $gradient-angle,
@@ -130,6 +138,7 @@ $space-40: 40px;
 $space-48: 48px;
 $space-60: 60px;
 $space-64: 64px;
+$space-98: 98px;
 
 $space-container-mobile: 16px;
 $space-container-desktop: 30px;

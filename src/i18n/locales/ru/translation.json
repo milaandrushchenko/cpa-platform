@@ -22,7 +22,12 @@
     "accent": "гарантировать"
   },
   "multiply": {
-    "sectionName": "Умножай с нами"
+    "sectionName": "Умножай с нами",
+    "buttons": {
+      "for_media_buyers": "В команду",
+      "for_businesses": "Запустить сейчас",
+      "for_partners": "Стать партнёром"
+    }
   },
   "footer": {
     "links": {

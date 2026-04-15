@@ -10,6 +10,8 @@ import BenefitsSection from '@sections/benefitsSection/BenefitsSection';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import MultiplySection from '@/sections/multiplySection/MultiplySection';
+
 export default function LandingPage() {
   const { t } = useTranslation();
   const locale = useLocale();
@@ -59,9 +61,7 @@ export default function LandingPage() {
         <Button shape="pill">{t('tasks.sectionName')}</Button>
       </PageLayout>
       {data?.benefits && <BenefitsSection data={data.benefits} />}
-      <PageLayout id="multiply" fullHeight>
-        {t('multiply.sectionName')}
-      </PageLayout>
+      {data?.multiply && <MultiplySection data={data.multiply} />}
 
       {isLoading && <div>Loading...</div>}
     </main>

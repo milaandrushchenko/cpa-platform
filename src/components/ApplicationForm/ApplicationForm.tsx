@@ -6,7 +6,7 @@ import { TextField } from '@/components/ui/TextField/TextField';
 import { contactMethods } from '@/config/contactMethods';
 import { useSubmitContactForm } from '@/hooks/useSubmitContactForm';
 import { type ContactFormErrors, type ContactMethod } from '@/types/api';
-import { capitalize } from '@/utils/capitalize';
+import { capitalizeFirstChar } from '@/utils/capitalize';
 import { mapZodErrors } from '@/utils/mapZodErrors';
 
 import { contactFormSchema } from '../../config/schemas/contactForm.schema';
@@ -105,7 +105,7 @@ export const ApplicationForm = ({
             }
             isRequiredMark
             options={contactMethods.map((method) => ({
-              label: capitalize(method),
+              label: capitalizeFirstChar(method),
               value: method,
             }))}
             error={errors.method}

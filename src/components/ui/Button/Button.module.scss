@@ -157,7 +157,8 @@ $button-featured-face-height-desktop: calc(
       gap: $space-40;
     }
 
-    &:hover {
+    &:hover,
+    &.button--active {
       color: $color-purple-dark;
       background-color: $color-yellow-300;
       border-color: $color-purple-dark;
