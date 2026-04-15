@@ -1,0 +1,113 @@
+$bg-img-url: url('@assets/img/snake/snake-moving.png');
+$bg-img-size: 390px;
+$img-top-desktop: 35%;
+$benefits-list-top-desktop: 18vh;
+$benefits-list-top-mobile: 12vh;
+$max-width-first-column-on-desktop: 746px;
+$max-width-description-desktop: 564px;
+
+.section {
+  font-family: $font-family-display;
+  color: $text-color-primary;
+  padding-block: $space-32;
+
+  @include desktop {
+    padding-top: $space-60;
+  }
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  min-width: fit-content;
+  background: $gradient-section-brand, $color-purple-700;
+  background-repeat: no-repeat;
+
+  @include desktop {
+    background: $gradient-bg-default;
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.sectionLabel {
+  display: none;
+  @include desktop {
+    display: block;
+    @include section-label;
+    margin-bottom: $space-60;
+  }
+}
+
+.firstColumn {
+  margin-bottom: $benefits-list-top-mobile;
+  @include desktop {
+    margin: 0;
+    max-width: $max-width-first-column-on-desktop;
+  }
+}
+
+.title {
+  font-size: $text-size-title-lg;
+  font-weight: $font-weight-bold;
+  line-height: 0.9;
+  padding-bottom: $space-16;
+  @include desktop {
+    font-size: $text-size-section-title-on-desktop;
+  }
+}
+
+.description {
+  font-weight: $font-weight-medium;
+  line-height: 1.25;
+  @include desktop {
+    font-size: $text-size-body-lg;
+    max-width: $max-width-description-desktop;
+  }
+}
+
+.accent {
+  color: $text-color-accent;
+}
+
+.benefitsList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $space-20;
+
+  @include desktop {
+    padding-top: $benefits-list-top-desktop;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+
+      width: $bg-img-size;
+      height: $bg-img-size;
+
+      background-image: $bg-img-url;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left;
+
+      top: $img-top-desktop;
+      left: 0;
+      transform: translateX(-100%);
+
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+}
+
+.benefitsItem {
+  font-weight: $font-weight-bold;
+  font-size: $text-size-body-lg;
+  line-height: 1.2;
+  padding: $space-16;
+  background: $bg-card-highlight;
+  border-radius: 8px;
+}

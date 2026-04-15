@@ -1,16 +1,22 @@
 .section {
   position: relative;
   padding-inline: $space-container-mobile;
+  display: flex;
+  flex-direction: column;
 }
-
 .fullHeight {
   min-height: 100svh;
+
+  @include desktop {
+    min-height: 100vh;
+  }
 }
 
 .container {
   position: relative;
   z-index: 1;
-  height: 100vh;
+  height: 100%;
+  flex: 1;
 }
 
 .background {
