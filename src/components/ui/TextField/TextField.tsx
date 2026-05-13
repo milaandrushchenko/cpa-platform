@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { type InputHTMLAttributes, forwardRef, useId } from 'react';
+import { type InputHTMLAttributes, useId } from 'react';
 
 import styles from './TextField.module.scss';
 

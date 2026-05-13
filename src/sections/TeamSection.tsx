@@ -29,7 +29,7 @@ export default function TeamSection() {
         console.error('Error fetching tasks:', error);
       }
     };
-    fetchData();
+    void fetchData();
   }, [locale]);
 
   const tiles = pageData?.tiles || [];
@@ -58,7 +58,7 @@ export default function TeamSection() {
           </div>
 
           <ul className={styles.column}>
-            {Array.from(COLUMNS_TILE_CONFIG.secondColumn, (tile, i) => (
+            {COLUMNS_TILE_CONFIG.secondColumn.map((tile, i) => (
               <li className={styles.tile} key={`${i}-${tile.title}`}>
                 <InfoCard className={clsx(styles[`tile--default`])}>
                   <h3 className={clsx(styles.title, styles[`title--tile`])}>
@@ -71,7 +71,7 @@ export default function TeamSection() {
           </ul>
 
           <ul className={styles.column}>
-            {Array.from(COLUMNS_TILE_CONFIG.thirdColumn, (tile, i) => (
+            {COLUMNS_TILE_CONFIG.thirdColumn.map((tile, i) => (
               <li className={styles.tile} key={`${i}-${tile.title}`}>
                 <InfoCard className={clsx(styles[`tile--default`])}>
                   <h3 className={clsx(styles.title, styles[`title--tile`])}>

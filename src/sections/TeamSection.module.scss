@@ -75,6 +75,20 @@ $bg-snake-url: url('@assets/img/snake/snake-diamond.png');
   &--default {
     padding: $tile-mobile-padding;
   }
+
+  .tileText {
+    font-size: $text-size-body-lg;
+    line-height: 24px;
+    opacity: 0.7;
+    color: white;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover {
+    .tileText {
+      opacity: 1;
+    }
+  }
 }
 
 .title {
@@ -92,10 +106,4 @@ $bg-snake-url: url('@assets/img/snake/snake-diamond.png');
     line-height: $text-size-title-md;
     color: $color-yellow-300;
   }
-}
-
-.tileText {
-  font-size: $text-size-body-lg;
-  line-height: 24px;
-  opacity: 0.7;
 }

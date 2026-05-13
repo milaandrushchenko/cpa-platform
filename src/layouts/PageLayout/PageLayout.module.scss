@@ -29,7 +29,7 @@
   pointer-events: none;
 }
 
-@media (min-width: $breakpoint-desktop) {
+@include desktop {
   .section {
     padding-inline: $space-container-desktop;
   }
@@ -39,7 +39,7 @@
   }
 }
 
-@media (min-width: $breakpoint-desktop-lg) {
+@include desktop-lg {
   .section {
     padding-inline: $space-container-desktop-lg;
   }
