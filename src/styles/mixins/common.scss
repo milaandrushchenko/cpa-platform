@@ -40,6 +40,16 @@
   justify-content: center;
 }
 
+@mixin section-label($align: right) {
+  font-weight: $font-weight-bold;
+  font-size: $text-size-section-label-on-desktop;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: $text-color-accent;
+  font-family: $font-family-display;
+  text-align: $align;
+}
+
 @mixin section-name {
   $top-desktop: -60px;
   $bottom-desktop: -60px;
@@ -58,7 +68,7 @@
   transform: translateX(-50%);
 
   @include desktop {
-    font-size: $text-size-section-name-on-desktop;
+    font-size: $text-size-section-label-on-desktop;
 
     left: unset;
     bottom: unset;

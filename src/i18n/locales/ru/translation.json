@@ -18,10 +18,16 @@
   },
   "benefits": {
     "sectionName": "Мульти-преимущества",
-    "ticker": "Мечтай больше — зарабатывай больше!"
+    "ticker": "Мечтай больше — зарабатывай больше!",
+    "accent": "гарантировать"
   },
   "multiply": {
-    "sectionName": "Умножай с нами"
+    "sectionName": "Умножай с нами",
+    "buttons": {
+      "for_media_buyers": "В команду",
+      "for_businesses": "Запустить сейчас",
+      "for_partners": "Стать партнёром"
+    }
   },
   "footer": {
     "links": {

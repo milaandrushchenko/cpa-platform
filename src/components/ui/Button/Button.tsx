@@ -9,6 +9,7 @@ type ButtonProps = PropsWithChildren<
   {
     shape?: 'featured' | 'pill' | 'primary';
     icon?: ReactNode;
+    isActive?: boolean;
   } & ButtonHTMLAttributes<HTMLButtonElement>
 >;
 
@@ -17,6 +18,7 @@ export const Button = ({
   icon,
   shape = 'featured',
   className,
+  isActive,
   ...props
 }: ButtonProps) => {
   const resolvedIcon =
@@ -25,7 +27,12 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={clsx(styles.button, styles[`button--${shape}`], className)}
+      className={clsx(
+        styles.button,
+        styles[`button--${shape}`],
+        isActive && styles['button--active'],
+        className,
+      )}
       {...props}
     >
       <span className={styles.label}>{children}</span>

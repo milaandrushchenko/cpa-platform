@@ -19,10 +19,16 @@
   },
   "benefits": {
     "sectionName": "Multi-benefits",
-    "ticker": "Dream big earn bigger!"
+    "ticker": "Dream big earn bigger!",
+    "accent": "guaranteed"
   },
   "multiply": {
-    "sectionName": "Multiply with us"
+    "sectionName": "Multiply with us",
+    "buttons": {
+      "for_media_buyers": "Join the team",
+      "for_businesses": "Launch now",
+      "for_partners": "Partner up"
+    }
   },
   "social": {
     "links": [
