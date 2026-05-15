@@ -1,6 +1,11 @@
 .teamSection {
-  // flex-grow: 1;
   background: $gradient-bg-section-team;
+
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
   overflow: hidden;
 
   padding-bottom: 80px;
@@ -13,7 +18,9 @@
 }
 
 .teamSectionContainer {
-  flex-grow: 1;
+  flex: 1;
+  min-height: 0;
+
   overflow-y: auto;
 
   @include desktop {
