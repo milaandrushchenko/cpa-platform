@@ -10,6 +10,7 @@ type PageLayoutProps = PropsWithChildren<{
   className?: string;
   containerClassName?: string;
   fullHeight?: boolean;
+  screenHeight?: boolean;
   as?: keyof JSX.IntrinsicElements;
   background?: ReactNode;
 }>;
@@ -20,6 +21,7 @@ export const PageLayout = ({
   className,
   containerClassName,
   fullHeight = false,
+  screenHeight = false,
   as: Component = 'section',
   background,
 }: PageLayoutProps) => {
@@ -29,6 +31,7 @@ export const PageLayout = ({
       className={clsx(
         styles.section,
         fullHeight && styles.fullHeight,
+        screenHeight && styles.screenHeight,
         className,
       )}
     >

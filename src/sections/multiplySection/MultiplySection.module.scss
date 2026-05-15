@@ -23,22 +23,7 @@ $arrow-height-on-desktop: 22px;
 }
 
 .sectionLabel {
-  margin-bottom: 0;
-  text-transform: uppercase;
-  color: $text-color-accent;
-  text-align: center;
-  font-size: $text-size-body-lg;
-  font-weight: $font-weight-bold;
-
-  @include desktop {
-    position: absolute;
-    top: $section-label-top-on-desktop;
-    right: 0;
-
-    display: block;
-    @include section-label;
-    margin-bottom: 0;
-  }
+  @include section-label-block($section-label-top-on-desktop);
 }
 
 .bg {

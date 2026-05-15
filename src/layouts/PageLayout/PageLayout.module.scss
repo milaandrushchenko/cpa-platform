@@ -15,10 +15,14 @@
 .container {
   position: relative;
   z-index: 1;
-  height: 100%;
-  flex: 1;
-}
 
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 0;
+}
 .background {
   position: absolute;
   inset: 0;
@@ -26,7 +30,7 @@
   pointer-events: none;
 }
 
-@media (min-width: $breakpoint-desktop) {
+@include desktop {
   .section {
     padding-inline: $space-container-desktop;
   }
@@ -36,7 +40,7 @@
   }
 }
 
-@media (min-width: $breakpoint-desktop-lg) {
+@include desktop-lg {
   .section {
     padding-inline: $space-container-desktop-lg;
   }

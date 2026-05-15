@@ -1,4 +1,5 @@
 export type ContactWidgetDetails = {
-  name: string;
+  name?: string;
   url: string;
+  icon?: string;
 };

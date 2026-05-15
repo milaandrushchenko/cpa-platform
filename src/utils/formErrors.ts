@@ -1,6 +1,6 @@
 import { serverValidationIssuesSchema } from '@/config/schemas/serverValidation.schema';
 
-import { capitalize, capitalizeFirstChar } from './capitalize';
+import { capitalizeFirstChar } from './capitalize';
 
 export const getReadableServerError = (message: string): string => {
   try {

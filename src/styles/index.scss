@@ -77,3 +77,11 @@ ul {
     display: block;
   }
 }
+
+.mobileOnly {
+  display: block;
+
+  @media (min-width: $breakpoint-desktop) {
+    display: none;
+  }
+}

@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: var(--grid-mobile);
   gap: var(--gap-mobile);
+  height: 100%;
+  flex-grow: 1;
 
   @include desktop {
     grid-template-columns: var(--grid-desktop);

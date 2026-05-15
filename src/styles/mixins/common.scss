@@ -49,3 +49,21 @@
   font-family: $font-family-display;
   text-align: $align;
 }
+
+@mixin section-label-block($top-value: -92px) {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: $text-color-accent;
+  text-align: center;
+  font-size: $text-size-body-lg;
+  font-weight: $font-weight-bold;
+
+  @include desktop {
+    position: absolute;
+    top: $top-value;
+    right: 0;
+    display: block;
+    @include section-label;
+    margin-bottom: 0;
+  }
+}

@@ -10,6 +10,7 @@ import BenefitsSection from '@sections/benefitsSection/BenefitsSection';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import TeamSection from '@/sections/TeamSection';
 import MultiplySection from '@/sections/multiplySection/MultiplySection';
 
 export default function LandingPage() {
@@ -53,13 +54,8 @@ export default function LandingPage() {
   return (
     <main>
       <HeroSection />
-      <Button onClick={openModal}>Open modal</Button>
-      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
 
-      <PageLayout id="tasks" fullHeight>
-        {t('tasks.sectionName')}
-        <Button shape="pill">{t('tasks.sectionName')}</Button>
-      </PageLayout>
+      {data?.benefits && <TeamSection />}
       {data?.benefits && <BenefitsSection data={data.benefits} />}
       {data?.multiply && <MultiplySection data={data.multiply} />}
 
