@@ -50,31 +50,20 @@
   text-align: $align;
 }
 
-@mixin section-name {
-  $top-desktop: -60px;
-  $bottom-desktop: -60px;
-
-  position: absolute;
-  color: $color-yellow-300;
-  font-family: $font-family-display;
-  font-weight: $font-weight-bold;
+@mixin section-label-block($top-value: -92px) {
+  margin-bottom: 0;
   text-transform: uppercase;
-  text-wrap: nowrap;
-
+  color: $text-color-accent;
+  text-align: center;
   font-size: $text-size-body-lg;
-
-  left: 50%;
-  bottom: $bottom-desktop;
-  transform: translateX(-50%);
+  font-weight: $font-weight-bold;
 
   @include desktop {
-    font-size: $text-size-section-label-on-desktop;
-
-    left: unset;
-    bottom: unset;
-    transform: unset;
-
-    top: $top-desktop;
+    position: absolute;
+    top: $top-value;
     right: 0;
+    display: block;
+    @include section-label;
+    margin-bottom: 0;
   }
 }

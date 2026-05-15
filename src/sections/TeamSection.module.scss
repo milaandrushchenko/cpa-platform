@@ -1,3 +1,6 @@
+$section-label-top-on-desktop: -92px;
+$section-top-on-desktop: 154px;
+
 .teamSection {
   background: $gradient-bg-section-team;
 
@@ -8,11 +11,12 @@
 
   overflow: hidden;
 
-  padding-bottom: 80px;
+  padding-bottom: $space-20;
   min-width: fit-content;
 
   @include desktop {
-    padding-top: 96px;
+    padding-bottom: 80px;
+    padding-top: $section-top-on-desktop;
     overflow: unset;
   }
 }
@@ -20,17 +24,16 @@
 .teamSectionContainer {
   flex: 1;
   min-height: 0;
-
   overflow-y: auto;
-
-  @include desktop {
-    overflow-y: unset;
-  }
-
   height: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 0;
+  margin-bottom: $space-48;
+
+  @include desktop {
+    overflow-y: unset;
+    margin-bottom: 0;
+  }
 }
 
 .logo {
@@ -41,8 +44,8 @@
   margin-bottom: 40px;
 }
 
-.sectionName {
-  @include section-name;
+.sectionLabel {
+  @include section-label-block($section-label-top-on-desktop);
 }
 
 .column {

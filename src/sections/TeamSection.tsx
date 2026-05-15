@@ -42,7 +42,6 @@ export default function TeamSection() {
   return (
     <PageLayout fullHeight className={styles.teamSection}>
       <LogoIcon className={`mobileOnly ${styles.logo}`} />
-      <p className={styles.sectionName}>{t('tasks.sectionName')}</p>
 
       <article className={styles.teamSectionContainer}>
         <SectionGrid
@@ -84,6 +83,7 @@ export default function TeamSection() {
           </ul>
         </SectionGrid>
       </article>
+      <p className={styles.sectionLabel}>{t('tasks.sectionName')}</p>
     </PageLayout>
   );
 }
