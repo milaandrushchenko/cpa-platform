@@ -1,7 +1,10 @@
 .container {
   display: flex;
   align-items: center;
-  font-size: $text-size-body-lg;
+  font-size: $text-size-title-lg;
+  @include desktop {
+    font-size: $text-size-body-lg;
+  }
 }
 
 .button {

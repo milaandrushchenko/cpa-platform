@@ -1,0 +1,75 @@
+.burgerTrigger {
+  @include interactive-display;
+  font-size: $text-size-body;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.logo {
+  height: $logo-height-lg;
+  width: $logo-width-lg;
+}
+
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: $gradient-section-brand;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  padding: $space-16;
+
+  transform: translateY(-100%);
+}
+
+.menuOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.closeIcon {
+  height: 24px;
+  width: 24px;
+  fill: $color-yellow-300;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: $color-yellow-300;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-white;
+  }
+}
+
+.navigation {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-64;
+  padding-bottom: $space-40;
+}

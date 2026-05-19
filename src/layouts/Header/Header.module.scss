@@ -3,3 +3,12 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.navActions {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    gap: $space-20;
+  }
+}

@@ -1,11 +1,15 @@
 $title-top-mobile: 150px;
 $title-top-desktop: 224px;
-$header-top: $space-30;
+$header-desktop-top: $space-30;
+$header-mobile-top: $space-10;
 $bg-snake-desktop-offset: 100px;
 $bg-snake-url: url('@assets/img/snake/snake-coiled.png');
 
 .heroSection {
-  padding-top: $header-top;
+  padding-top: $header-mobile-top;
+  @include desktop {
+    padding-top: $header-desktop-top;
+  }
 }
 
 .bg {

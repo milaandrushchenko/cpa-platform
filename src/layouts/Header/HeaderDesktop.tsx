@@ -1,5 +1,6 @@
 import { LogoIcon } from '@components/ui/icons/LogoIcon';
 
+import { BurgerMenu } from '@/components/BurgerMenu/BurgerMenu';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { NavLinks } from '@/components/NavLinks';
 
@@ -9,8 +10,11 @@ const HeaderDesktop = () => {
   return (
     <div className={style.headerDesktopContainer}>
       <LogoIcon />
-      <NavLinks variant="row" />
-      <LanguageSwitcher />
+      <div className={style.navActions}>
+        <NavLinks variant="row" />
+        <LanguageSwitcher />
+      </div>
+      <BurgerMenu />
     </div>
   );
 };
