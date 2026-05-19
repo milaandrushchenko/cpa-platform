@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+  font-size: $text-size-body-lg;
+}
+
+.button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: $font-family-display;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  color: $color-yellow-300;
+}
+
+.active {
+  color: $color-white;
+}
+
+.divider {
+  color: $color-yellow-300;
+  user-select: none;
+}

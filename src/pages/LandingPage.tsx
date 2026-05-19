@@ -10,7 +10,7 @@ import MultiplySection from '@/sections/multiplySection/MultiplySection';
 import TeamSection from '@/sections/teamSection/TeamSection';
 
 export default function LandingPage() {
-  const locale = useLocale();
+  const { locale } = useLocale();
   useScrollToHash();
 
   const [data, setData] = useState<Awaited<

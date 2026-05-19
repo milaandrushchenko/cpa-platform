@@ -24,7 +24,7 @@ export const useSubmitContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const locale = useLocale();
+  const { locale } = useLocale();
 
   const submit = async (payload: ContactFormPayload): Promise<SubmitResult> => {
     setIsLoading(true);

@@ -15,7 +15,7 @@ import styles from './TeamSection.module.scss';
 
 export default function TeamSection() {
   const { t } = useTranslation();
-  const locale = useLocale();
+  const { locale } = useLocale();
 
   const [pageData, setPageData] = useState<TasksResponse | null>(null);
 

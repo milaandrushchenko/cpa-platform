@@ -6,7 +6,7 @@ import { useLocale } from '@/hooks/useLocale';
 
 export default function LocaleHandler() {
   const { i18n } = useTranslation();
-  const locale = useLocale();
+  const { locale } = useLocale();
 
   useEffect(() => {
     document.documentElement.lang = locale;

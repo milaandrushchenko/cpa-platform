@@ -1,12 +1,8 @@
 {
   "navigation": {
-    "team": "Команда",
-    "benefits": "Преимущества",
-    "collectForm": "Присоединиться",
-    "locales": {
-      "en": "Eng",
-      "ru": "Рус"
-    }
+    "team": { "label": "Команда", "href": "#team" },
+    "benefits": { "label": "Преимущества", "href": "#benefits" },
+    "collectForm": { "label": "Присоединиться", "href": "#join" }
   },
   "hero": {
     "sectionName": "Главная",
