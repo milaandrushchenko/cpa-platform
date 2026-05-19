@@ -40,7 +40,7 @@ export default function TeamSection() {
   };
 
   return (
-    <PageLayout fullHeight className={styles.teamSection}>
+    <PageLayout id="team" fullHeight className={styles.teamSection}>
       <LogoIcon className={`mobileOnly ${styles.logo}`} />
 
       <article className={styles.teamSectionContainer}>

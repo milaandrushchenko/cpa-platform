@@ -35,7 +35,7 @@ export default function MultiplySection({ data }: MultiplySectionProps) {
 
   return (
     <PageLayout
-      id="multiply"
+      id="join"
       fullHeight
       className={clsx(styles.bg, styles.section)}
     >

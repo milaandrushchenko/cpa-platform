@@ -6,6 +6,7 @@ import SectionGrid from '@layouts/SectionGrid/SectionGrid';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import Header from '@/layouts/Header';
 import { PageLayout } from '@/layouts/PageLayout';
 import { type ContactWidgetDetails } from '@/types/general';
 
@@ -31,7 +32,7 @@ export default function HeroSection() {
   return (
     <PageLayout id="hero" fullHeight className={styles.bg}>
       <article className={styles.heroSection}>
-        <LogoIcon className={`desktopOnly ${styles.logo}`} />
+        <Header />
 
         <SectionGrid desktop={{ singleColumnWidth: '54%' }}>
           <h1 className={styles.title}>
