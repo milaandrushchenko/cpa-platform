@@ -1,5 +1,6 @@
 {
   "navigation": {
+    "menu": "меню",
     "main": { "label": "Главная", "href": "#hero" },
     "team": { "label": "Команда", "href": "#team" },
     "benefits": { "label": "Преимущества", "href": "#benefits" },

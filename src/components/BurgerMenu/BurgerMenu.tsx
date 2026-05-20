@@ -56,7 +56,7 @@ export const BurgerMenu = () => {
         onClick={toggleMenu}
         type="button"
       >
-        MENU
+        {t('navigation.menu')}
       </button>
       {createPortal(
         <div ref={menuRef} className={styles.menuOverlay}>

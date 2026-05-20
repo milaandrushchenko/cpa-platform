@@ -1,5 +1,6 @@
 {
   "navigation": {
+    "menu": "menu",
     "main": { "label": "Main", "href": "#hero" },
     "team": { "label": "Team", "href": "#team" },
     "benefits": { "label": "Benefits", "href": "#benefits" },

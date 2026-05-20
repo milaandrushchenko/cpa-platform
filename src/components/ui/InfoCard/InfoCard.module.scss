@@ -2,4 +2,7 @@
   background-color: $color-fuchsia-500;
   border-radius: 8px;
   height: 100%;
+  min-height: max-content;
+  display: flex;
+  flex-direction: column;
 }

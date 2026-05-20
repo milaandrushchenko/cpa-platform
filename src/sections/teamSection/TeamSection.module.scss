@@ -66,7 +66,8 @@ $first-tile-desktop-padding: $space-40;
 $bg-snake-url: url('@assets/img/snake/snake-diamond.png');
 
 .tile {
-  height: 100%;
+  height: auto;
+  min-height: max-content;
 
   &--first {
     height: $first-tile-height-mobile;
@@ -117,4 +118,8 @@ $bg-snake-url: url('@assets/img/snake/snake-diamond.png');
     line-height: $text-size-title-md;
     color: $color-yellow-300;
   }
+
+  overflow-wrap: anywhere;
+  hyphens: manual;
+  word-break: normal;
 }

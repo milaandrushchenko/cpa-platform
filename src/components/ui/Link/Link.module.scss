@@ -2,6 +2,10 @@
   @include interactive-display;
   font-size: $text-size-title-lg;
 
+  :global(html[lang='ru']) & {
+    font-size: clamp($text-size-title-sm, 5vw, $text-size-title-lg);
+  }
+
   &:focus,
   &:hover {
     color: $color-white;
