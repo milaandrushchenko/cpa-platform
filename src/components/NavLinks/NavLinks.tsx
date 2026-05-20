@@ -5,6 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { Link } from '../ui/Link';
 import styles from './NavLinks.module.scss';
 
+interface NavItem {
+  label: string;
+  href: string;
+}
+
 interface NavLinksProps {
   variant: 'row' | 'column';
 }
@@ -12,11 +17,16 @@ interface NavLinksProps {
 export const NavLinks = ({ variant }: NavLinksProps) => {
   const { t } = useTranslation();
 
-  const menuItems = [
+  const baseItems = [
     t('navigation.team', { returnObjects: true }),
     t('navigation.benefits', { returnObjects: true }),
     t('navigation.collectForm', { returnObjects: true }),
-  ] as { label: string; href: string }[];
+  ] as NavItem[];
+
+  const menuItems =
+    variant === 'column'
+      ? [t('navigation.main', { returnObjects: true }) as NavItem, ...baseItems]
+      : baseItems;
 
   return (
     <ul className={clsx(styles.list, styles[`list-${variant}`])}>

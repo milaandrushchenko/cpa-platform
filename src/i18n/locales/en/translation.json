@@ -1,5 +1,6 @@
 {
   "navigation": {
+    "main": { "label": "Main", "href": "#hero" },
     "team": { "label": "Team", "href": "#team" },
     "benefits": { "label": "Benefits", "href": "#benefits" },
     "collectForm": { "label": "Join us", "href": "#join" }

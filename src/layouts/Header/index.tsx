@@ -1,11 +1,8 @@
+import { PageLayout } from '../PageLayout';
 import HeaderDesktop from './HeaderDesktop';
 
 const Header = () => {
-  return (
-    <>
-      <HeaderDesktop />
-    </>
-  );
+  return <HeaderDesktop />;
 };
 
 export default Header;

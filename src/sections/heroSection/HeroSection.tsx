@@ -32,8 +32,6 @@ export default function HeroSection() {
   return (
     <PageLayout id="hero" fullHeight className={styles.bg}>
       <article className={styles.heroSection}>
-        <Header />
-
         <SectionGrid desktop={{ singleColumnWidth: '54%' }}>
           <h1 className={styles.title}>
             {t('hero.title')}{' '}

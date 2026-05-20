@@ -1,7 +1,19 @@
-.headerDesktopContainer {
+.headerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-inline: $space-container-mobile;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  @include desktop {
+    position: absolute;
+    top: $space-30;
+  }
 }
 
 .navActions {

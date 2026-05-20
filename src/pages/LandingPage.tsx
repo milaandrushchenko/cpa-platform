@@ -5,6 +5,7 @@ import BenefitsSection from '@sections/benefitsSection/BenefitsSection';
 
 import { useEffect, useState } from 'react';
 
+import Header from '@/layouts/Header';
 import HeroSection from '@/sections/heroSection/HeroSection';
 import MultiplySection from '@/sections/multiplySection/MultiplySection';
 import TeamSection from '@/sections/teamSection/TeamSection';
@@ -43,6 +44,7 @@ export default function LandingPage() {
 
   return (
     <main>
+      <Header />
       <HeroSection />
 
       {data?.benefits && <TeamSection />}
