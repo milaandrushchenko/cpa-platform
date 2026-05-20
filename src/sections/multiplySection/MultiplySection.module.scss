@@ -15,7 +15,7 @@ $arrow-height-on-desktop: 22px;
   width: 100%;
   font-family: $font-family-display;
   color: $text-color-primary;
-  padding-block: $space-40 $space-20;
+  padding-block: $section-top-on-mobile $space-20;
 
   @include desktop {
     padding-top: $section-top-on-desktop;

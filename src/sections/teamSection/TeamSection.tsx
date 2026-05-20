@@ -41,8 +41,6 @@ export default function TeamSection() {
 
   return (
     <PageLayout id="team" fullHeight className={styles.teamSection}>
-      <LogoIcon className={`mobileOnly ${styles.logo}`} />
-
       <article className={styles.teamSectionContainer}>
         <SectionGrid
           mobile={{ columns: 1, gap: '20px' }}
