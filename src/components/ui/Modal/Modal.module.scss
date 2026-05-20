@@ -36,12 +36,16 @@
   }
 
   .logo {
-    fill: $bg-card-highlight;
     display: block;
     margin: 0 auto $space-40;
 
     width: 45px;
     height: 41px;
+
+    & > path,
+    ellipse {
+      fill: $bg-card-highlight;
+    }
 
     @include desktop {
       width: 56px;

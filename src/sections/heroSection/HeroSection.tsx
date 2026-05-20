@@ -1,4 +1,3 @@
-import { LogoIcon } from '@assets/icons';
 import ContactWidgets from '@components/ContactWidgets/ContactWidgets';
 import { Button } from '@components/ui/Button';
 import SectionGrid from '@layouts/SectionGrid/SectionGrid';
@@ -31,8 +30,6 @@ export default function HeroSection() {
   return (
     <PageLayout id="hero" fullHeight className={styles.bg}>
       <article className={styles.heroSection}>
-        <LogoIcon className={`desktopOnly ${styles.logo}`} />
-
         <SectionGrid desktop={{ singleColumnWidth: '54%' }}>
           <h1 className={styles.title}>
             {t('hero.title')}{' '}

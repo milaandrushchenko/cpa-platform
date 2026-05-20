@@ -15,7 +15,7 @@ import styles from './TeamSection.module.scss';
 
 export default function TeamSection() {
   const { t } = useTranslation();
-  const locale = useLocale();
+  const { locale } = useLocale();
 
   const [pageData, setPageData] = useState<TasksResponse | null>(null);
 
@@ -40,9 +40,7 @@ export default function TeamSection() {
   };
 
   return (
-    <PageLayout fullHeight className={styles.teamSection}>
-      <LogoIcon className={`mobileOnly ${styles.logo}`} />
-
+    <PageLayout id="team" fullHeight className={styles.teamSection}>
       <article className={styles.teamSectionContainer}>
         <SectionGrid
           mobile={{ columns: 1, gap: '20px' }}

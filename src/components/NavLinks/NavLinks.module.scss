@@ -1,0 +1,13 @@
+.list {
+  display: flex;
+}
+
+.list-row {
+  flex-direction: row;
+  gap: $space-20;
+}
+
+.list-column {
+  flex-direction: column;
+  gap: $space-40;
+}

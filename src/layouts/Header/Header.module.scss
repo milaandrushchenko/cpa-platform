@@ -1,0 +1,36 @@
+$header-bg-color: rgba(154, 0, 255, 0.02);
+$header-blur-radius: 10px;
+$header-z-index: 1000;
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: $space-container-mobile;
+
+  background: $header-bg-color;
+  backdrop-filter: blur($header-blur-radius);
+  -webkit-backdrop-filter: blur($header-blur-radius);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: $header-z-index;
+  padding-block: $space-10;
+
+  @include desktop {
+    padding: 0;
+    position: absolute;
+    top: $space-30;
+  }
+}
+
+.navActions {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    gap: $space-20;
+  }
+}

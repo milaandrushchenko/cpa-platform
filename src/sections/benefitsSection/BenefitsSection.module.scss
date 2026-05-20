@@ -12,6 +12,8 @@ $max-width-description-desktop: 564px;
   padding-block: $space-32;
   overflow: hidden;
 
+  padding-top: $section-top-on-mobile;
+
   @include desktop {
     padding-top: $space-60;
   }

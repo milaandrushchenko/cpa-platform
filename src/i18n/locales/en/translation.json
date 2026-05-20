@@ -1,12 +1,10 @@
 {
   "navigation": {
-    "team": "Team",
-    "benefits": "Benefits",
-    "collectForm": "Join us",
-    "locales": {
-      "en": "Eng",
-      "ru": "Рус"
-    }
+    "menu": "menu",
+    "main": { "label": "Main", "href": "#hero" },
+    "team": { "label": "Team", "href": "#team" },
+    "benefits": { "label": "Benefits", "href": "#benefits" },
+    "collectForm": { "label": "Join us", "href": "#join" }
   },
   "hero": {
     "sectionName": "Hero",
