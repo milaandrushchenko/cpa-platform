@@ -1,4 +1,3 @@
-import { LogoIcon } from '@assets/icons';
 import ContactWidgets from '@components/ContactWidgets/ContactWidgets';
 import { Button } from '@components/ui/Button';
 import SectionGrid from '@layouts/SectionGrid/SectionGrid';
@@ -6,7 +5,6 @@ import SectionGrid from '@layouts/SectionGrid/SectionGrid';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Header from '@/layouts/Header';
 import { PageLayout } from '@/layouts/PageLayout';
 import { type ContactWidgetDetails } from '@/types/general';
 
