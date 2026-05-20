@@ -1,10 +1,10 @@
+import { LogoIcon } from '@components/ui/icons/LogoIcon';
 import clsx from 'clsx';
 
 import { type MouseEvent, type PropsWithChildren, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import { CloseButton } from '../CloseButton';
-import { LogoIcon } from '../icons/LogoIcon';
 import styles from './Modal.module.scss';
 
 type ModalProps = PropsWithChildren<{
