@@ -1,0 +1,29 @@
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  gap: $space-10;
+}
+
+.contactList {
+  display: flex;
+  align-items: center;
+
+  gap: $space-10;
+}
+
+.scrollTop {
+  @include interactive-display;
+  font-size: $text-size-body-lg;
+
+  display: inline-flex;
+  align-items: end;
+  gap: 8px;
+
+  .arrow {
+    width: 30px;
+    height: 30px;
+    display: block;
+    fill: $color-yellow-300;
+  }
+}

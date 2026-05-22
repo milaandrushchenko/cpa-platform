@@ -62,6 +62,12 @@ $arrow-height-on-desktop: 22px;
   }
 }
 
+.detailsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .stepList {
   border-radius: $step-list-border-radius;
   padding-inline: $space-20;
@@ -94,5 +100,13 @@ $arrow-height-on-desktop: 22px;
   @include desktop {
     width: $arrow-width-on-desktop;
     height: $arrow-height-on-desktop;
+  }
+}
+
+.footer {
+  display: none;
+
+  @include desktop {
+    display: block;
   }
 }

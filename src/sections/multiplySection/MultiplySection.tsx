@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import ContactModal from '@/components/ApplicationForm/ContactModal';
 import { Button } from '@/components/ui/Button';
 import { ArrowIcon } from '@/components/ui/icons';
+import { Footer } from '@/layouts/Footer';
 import { PageLayout } from '@/layouts/PageLayout';
 import SectionGrid from '@/layouts/SectionGrid/SectionGrid';
 import type { MultiplyResponse } from '@/types/api';
@@ -55,23 +56,27 @@ export default function MultiplySection({ data }: MultiplySectionProps) {
             </Button>
           ))}
         </div>
-        <div className={styles.stepList}>
-          {Object.values(activeList.steps).map((step, i, arr) => (
-            <Fragment key={step}>
-              <div>{step}</div>
-              <ArrowIcon direction="down" className={styles.arrow} />
-              {i === arr.length - 1 && (
-                <Button onClick={openModal}>
-                  {t(
-                    `multiply.buttons.${MULTIPLY_TRANSLATION_KEYS[activeIndex]}`,
-                  )}
-                </Button>
-              )}
-            </Fragment>
-          ))}
-        </div>
+        <div className={styles.detailsWrapper}>
+          <div className={styles.stepList}>
+            {Object.values(activeList.steps).map((step, i, arr) => (
+              <Fragment key={step}>
+                <div>{step}</div>
+                <ArrowIcon direction="down" className={styles.arrow} />
+                {i === arr.length - 1 && (
+                  <Button onClick={openModal}>
+                    {t(
+                      `multiply.buttons.${MULTIPLY_TRANSLATION_KEYS[activeIndex]}`,
+                    )}
+                  </Button>
+                )}
+              </Fragment>
+            ))}
+          </div>
+          <Footer className={styles.footer} />
+        </div>{' '}
       </SectionGrid>
       <h2 className={styles.sectionLabel}> {t('multiply.sectionName')}</h2>
+
       <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </PageLayout>
   );

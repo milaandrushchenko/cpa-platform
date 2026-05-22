@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { getTasks } from '@/api/endpoints/tasks';
-import { LogoIcon } from '@/assets/icons';
 import { InfoCard } from '@/components/ui/InfoCard';
 import { useLocale } from '@/hooks/useLocale';
 import { PageLayout } from '@/layouts/PageLayout';
