@@ -66,8 +66,7 @@ $first-tile-desktop-padding: $space-40;
 $bg-snake-url: url('@assets/img/snake/snake-diamond.png');
 
 .tile {
-  height: auto;
-  min-height: max-content;
+  height: 100%;
 
   &--first {
     height: $first-tile-height-mobile;
