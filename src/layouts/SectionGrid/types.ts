@@ -10,6 +10,7 @@ export type ColumnsConfig = {
   ratios?: number[];
   /* Column gap. Defaults to 8px. */
   gap?: CSSProperties['gap'];
+  singleColumnWidth?: CSSProperties['maxWidth'];
 };
 
 export type SectionGridProps = {

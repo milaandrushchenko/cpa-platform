@@ -24,8 +24,12 @@ function validateColumnsConfig(
   }
 }
 
-function toGridCols({ columns = 1, ratios }: ColumnsConfig): string {
-  if (columns === 1) return '1fr';
+function toGridCols(config: ColumnsConfig): string {
+  const { columns = 1, ratios, singleColumnWidth } = config;
+
+  if (columns === 1) {
+    return singleColumnWidth ? (singleColumnWidth as string) : '1fr';
+  }
 
   const hasValidLength = ratios?.length === columns;
   const hasValidValues =
@@ -49,6 +53,7 @@ function toGridCols({ columns = 1, ratios }: ColumnsConfig): string {
   const resolvedRatios = hasValidValues
     ? ratios
     : Array<number>(columns).fill(1);
+
   return resolvedRatios.map((n) => `${n}fr`).join(' ');
 }
 
